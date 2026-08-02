@@ -1,0 +1,51 @@
+Product,DWB Asset Category,Asset Type,Unit,LR Rule,Search Terms
+Main switchboard,Electrical,Switchgear,set,,switchboard main busbar
+Emergency switchboard,Electrical,Switchgear,set,,emergency switchboard source of power
+Distribution board,Electrical,Switchgear,set,,distribution board final circuit
+Circuit breaker,Electrical,Protection,pc,,circuit breaker short circuit protection
+Cable and cable gland,Electrical,Cable,lot,,cable gland enclosure ingress
+Generator,Electrical,Rotating machine,set,,generator prime mover excitation
+Electric motor,Electrical,Rotating machine,set,,electric motor insulation temperature rise
+Transformer,Electrical,Static equipment,set,,transformer winding insulation
+Battery and charger,Electrical,Storage,set,,battery ventilation charging
+Ex-proof equipment,Electrical,Hazardous area,pc,,explosive gas atmosphere certified safe type
+Diesel engine (main),Machinery,Prime mover,set,,reciprocating internal combustion engine crankshaft
+Diesel engine (auxiliary),Machinery,Prime mover,set,,auxiliary engine type test
+Turbocharger,Machinery,Prime mover part,pc,,turbocharger overspeed containment
+Reduction gear,Machinery,Transmission,set,,gearing tooth loading
+Propeller shaft,Machinery,Shafting,pc,,shafting propeller shaft alignment
+Steering gear,Machinery,Deck machinery,set,,steering gear rudder actuator
+Windlass and mooring winch,Deck,Deck machinery,set,,windlass anchor mooring winch
+Lifting appliance,Deck,Lifting,set,,lifting appliance crane proof load
+Hatch cover,Deck,Closing appliance,set,,hatch cover securing weathertight
+Watertight door,Deck,Closing appliance,pc,,watertight door closing
+Pump (bilge / ballast),Piping,Rotating machine,set,,bilge pump ballast capacity
+Pump (fire),Piping,Rotating machine,set,,fire pump capacity emergency
+Valve (Class I / II),Piping,Valve,pc,,valve class I piping design pressure
+Relief valve,Piping,Valve,pc,,relief valve set pressure discharge
+Pipe and fitting,Piping,Pipe,lot,,pipe fitting design temperature thickness
+Flexible hose,Piping,Pipe,pc,,flexible hose burst pressure
+Expansion joint,Piping,Pipe,pc,,expansion joint bellows
+Heat exchanger,Piping,Pressure equipment,set,,heat exchanger pressure vessel test
+Air receiver,Piping,Pressure equipment,pc,,air receiver starting air pressure vessel
+Boiler,Machinery,Pressure equipment,set,,boiler safety valve water level
+Steel plate and section,Material,Rolled steel,ton,,rolled steel plate impact test grade
+Steel forging,Material,Forging,pc,,forgings mechanical tests heat treatment
+Steel casting,Material,Casting,pc,,castings non-destructive examination
+Iron casting,Material,Casting,pc,,iron castings spheroidal graphite
+Copper alloy pipe,Material,Non-ferrous,lot,,copper alloy pipes annealed thickness
+Aluminium alloy,Material,Non-ferrous,lot,,aluminium alloy welding temper
+Welding consumable,Material,Welding,lot,,welding consumables approval filler
+Anchor and chain cable,Deck,Outfitting,set,,anchor chain cable proof test
+Wire rope,Deck,Outfitting,lot,,wire rope breaking load
+Fire detection system,Safety,Fire,set,,fire detection smoke detector alarm
+Fixed fire extinguishing system,Safety,Fire,set,,fixed fire extinguishing medium release
+Gas detection system,Safety,Fire,set,,gas detection detector flammable
+Life saving appliance,Safety,LSA,set,,life saving appliance launching
+Emergency shutdown system,Control,Safety system,set,,emergency shutdown fail-safe initiation
+Control and monitoring system,Control,Automation,set,,control alarm monitoring safety system
+Remote control system,Control,Automation,set,,remote control bridge manoeuvring
+Bunker manifold and ERC,Gas,Bunkering,set,,emergency release coupling manifold bunker
+Vapour return system,Gas,Bunkering,set,,vapour return line pressure control
+Reliquefaction plant,Gas,Cargo handling,set,,reliquefaction refrigerating plant compressor
+Cryogenic valve,Gas,Valve,pc,,cryogenic low temperature service valve

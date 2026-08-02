@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12212e">
+<link rel="manifest" href="manifest.webmanifest">
+<title>LR 규정 검색 · MEC</title>
+<style>
+:root{--ink:#12212e;--ink2:#41586b;--ink3:#7b8fa0;--paper:#f6f4ef;--card:#fff;
+ --line:#dcd8cf;--sea:#0b5c7a;--stamp:#9a5b12;--mark:#ffe9a8;--ko:#eef4f7;
+ --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+ --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 var(--sans)}
+header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9;
+ padding-top:env(safe-area-inset-top)}
+.hw{max-width:1180px;margin:0 auto;padding:12px 16px}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.brand b{font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.brand span{font:11.5px var(--mono);color:var(--ink3)}
+.brand button{margin-left:auto;font:12px var(--sans);background:none;border:1px solid var(--line);
+ color:var(--ink2);border-radius:2px;padding:4px 10px;cursor:pointer}
+form{display:flex;gap:8px;margin-top:10px}
+input[type=search]{flex:1;font:16px var(--sans);padding:11px 13px;border:1px solid var(--line);
+ border-radius:2px;background:var(--paper);color:var(--ink);min-width:0}
+input[type=search]:focus{outline:2px solid var(--sea);outline-offset:1px;background:#fff}
+select{font:14px var(--sans);padding:11px 8px;border:1px solid var(--line);border-radius:2px;background:var(--card)}
+.wrap{max-width:1180px;margin:0 auto;padding:16px;display:grid;grid-template-columns:262px 1fr;
+ gap:20px;align-items:start}
+aside{position:sticky;top:120px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.ph{padding:9px 13px;border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.1em;
+ text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:8px}
+.ph button{margin-left:auto;font:11px var(--sans);background:none;border:0;color:var(--sea);cursor:pointer;padding:0}
+.plist{max-height:62vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.cat{padding:8px 13px 3px;font:11px var(--mono);color:var(--stamp);border-top:1px solid var(--line)}
+.item{display:block;width:100%;text-align:left;border:0;background:none;cursor:pointer;
+ padding:8px 13px;font:14px var(--sans);color:var(--ink);border-left:3px solid transparent}
+.item:active,.item:hover{background:var(--paper)}
+.item[aria-current=true]{background:var(--ko);border-left-color:var(--sea);font-weight:600}
+.item small{display:block;font:11px var(--mono);color:var(--ink3)}
+.meta{font:12.5px var(--mono);color:var(--ink3);margin-bottom:11px}
+article{background:var(--card);border:1px solid var(--line);border-radius:2px;margin-bottom:10px;
+ display:grid;grid-template-columns:146px 1fr}
+.k{border-right:1px solid var(--line);padding:12px;background:#fbfaf7;font:11.5px/1.75 var(--mono);color:var(--ink2)}
+.k .n{font-size:15.5px;color:var(--ink);font-weight:600}
+.k .doc{color:var(--sea);font-weight:600}.k .ed{color:var(--stamp)}
+.b{padding:12px 14px}
+.crumb{font-size:12px;color:var(--ink3)}
+.sub{font-size:12.5px;color:var(--ink2);font-weight:600;margin:2px 0 6px}
+mark{background:var(--mark);padding:0 1px}
+.acts{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap}
+.acts button{font:12px var(--sans);padding:6px 11px;border:1px solid var(--sea);color:var(--sea);
+ background:none;border-radius:2px;cursor:pointer}
+.acts button:active{background:var(--sea);color:#fff}
+.kobox{margin-top:10px;padding:11px 13px;background:var(--ko);border-left:3px solid var(--sea);font-size:14.5px}
+.kobox em{font-style:normal;color:var(--ink3);font-size:12px;display:block;margin-top:7px}
+.empty{padding:44px 18px;text-align:center;color:var(--ink3)}
+.empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:7px}
+.note{margin:22px 0 44px;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--stamp)}
+dialog{border:1px solid var(--line);border-radius:3px;padding:0;max-width:460px;width:calc(100% - 32px);
+ background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(18,33,46,.45)}
+.dh{padding:15px 18px;border-bottom:1px solid var(--line);font-weight:600}
+.db{padding:16px 18px;font-size:14px}
+.db p{margin:0 0 12px;color:var(--ink2)}
+.db input[type=file]{width:100%;font:13px var(--sans);margin-bottom:10px}
+.df{padding:12px 18px;border-top:1px solid var(--line);display:flex;gap:8px;justify-content:flex-end}
+.df button{font:14px var(--sans);padding:8px 15px;border:1px solid var(--line);background:var(--card);
+ border-radius:2px;cursor:pointer}
+.df .go{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bar{height:3px;background:var(--line);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--sea);width:0;transition:width .2s}
+@media(max-width:900px){.wrap{grid-template-columns:1fr;padding:12px;gap:14px}
+ aside{position:static}.plist{max-height:38vh}
+ article{grid-template-columns:1fr}
+ .k{border-right:0;border-bottom:1px solid var(--line);display:flex;gap:11px;flex-wrap:wrap;align-items:baseline;padding:9px 13px}
+ .k .n{font-size:14px}}
+</style>
+</head>
+<body>
+<header><div class="hw">
+ <div class="brand"><b>LR 규정 검색</b><span id="cnt">자료 없음</span>
+  <button id="btnData">자료 관리</button></div>
+ <form id="f" autocomplete="off">
+  <input type="search" id="q" placeholder="일부만 입력해도 됩니다 — cable gla / imp test / 충격시험 / 5.3.4">
+  <select id="d"><option value="">전체</option></select>
+ </form>
+ <div class="bar" id="bar" hidden><i></i></div>
+</div></header>
+
+<div class="wrap">
+ <aside><div class="panel">
+  <div class="ph">MEC 검사항목 <button id="btnMec">CSV 불러오기</button></div>
+  <div class="plist" id="mec"></div></div></aside>
+ <main>
+  <div class="meta" id="meta"></div>
+  <div id="out"><div class="empty"><b>규정 자료를 먼저 불러오세요</b>
+   오른쪽 위 <b style="display:inline">자료 관리</b>에서 배포받은 파일을 선택하면 됩니다. 한 번만 하면 됩니다.</div></div>
+  <div class="note" id="note" hidden>검색 결과는 <b>후보</b>입니다.
+   판정·지적 근거로 쓰기 전 원문 PDF의 해당 판·조항을 확인하십시오.</div>
+ </main>
+</div>
+
+<dialog id="dlg">
+ <div class="dh">규정 자료 관리</div>
+ <div class="db">
+  <p id="dlgState"></p>
+  <input type="file" id="file" accept=".gz,.json">
+  <p style="font-size:12.5px">배포받은 <b>lr-rules-2026.json.gz</b> 파일을 선택하세요.
+   이 기기 안에만 저장되며 인터넷으로 전송되지 않습니다.</p>
+ </div>
+ <div class="df">
+  <button id="dlgClear">저장자료 지우기</button>
+  <button class="go" id="dlgClose">닫기</button>
+ </div>
+</dialog>
+
+<input type="file" id="mecFile" accept=".csv" hidden>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- 용어집: 영문 규정 용어 ↔ 국문 ---------- */
+const G={
+"classification society":"선급","flag administration":"기국 주관청","recognised organisation":"인정기관",
+"type approval":"형식승인","works approval":"공장승인","survey report":"검사보고서",
+"material certificate":"재료증명서","test certificate":"시험성적서",
+"non-destructive examination":"비파괴검사","non-destructive testing":"비파괴검사",
+"radiographic testing":"방사선투과시험","ultrasonic testing":"초음파탐상시험",
+"magnetic particle":"자분탐상","dye penetrant":"침투탐상","hydraulic test":"수압시험",
+"hydrostatic test":"수압시험","pressure test":"압력시험","tightness test":"기밀시험",
+"leak test":"누설시험","functional test":"기능시험","type test":"형식시험","impact test":"충격시험",
+"tensile test":"인장시험","bend test":"굽힘시험","yield strength":"항복강도",
+"tensile strength":"인장강도","elongation":"연신율","heat treatment":"열처리",
+"annealed":"소둔","normalised":"불림","quenched and tempered":"조질","stress relief":"응력제거",
+"welding procedure":"용접절차","welder approval":"용접사 자격","filler metal":"용접재료",
+"butt weld":"맞대기 용접","fillet weld":"필릿 용접","design pressure":"설계압력",
+"design temperature":"설계온도","working pressure":"사용압력","relief valve":"안전밸브",
+"safety valve":"안전밸브","shut-off valve":"차단밸브","isolating valve":"격리밸브",
+"non-return valve":"역지밸브","pressure vessel":"압력용기","piping system":"배관계통",
+"pipe fitting":"관 이음쇠","flange":"플랜지","expansion joint":"신축이음",
+"cable gland":"케이블 글랜드","switchboard":"배전반","main switchboard":"주배전반",
+"emergency switchboard":"비상배전반","distribution board":"분전반","circuit breaker":"차단기",
+"protective device":"보호장치","earth fault":"지락","short circuit":"단락",
+"insulation resistance":"절연저항","enclosure":"외함","degree of protection":"보호등급",
+"explosive gas atmosphere":"폭발성 가스 분위기","hazardous area":"위험구역",
+"certified safe type":"방폭형","intrinsically safe":"본질안전","gas detection":"가스검지",
+"emergency shutdown":"비상정지","fail-safe":"페일세이프","alarm":"경보","monitoring":"감시",
+"control station":"제어실","remote control":"원격제어","main propulsion":"주추진",
+"auxiliary engine":"보조기관","reciprocating internal combustion engine":"왕복동 내연기관",
+"crankshaft":"크랭크축","turbocharger":"과급기","steering gear":"조타장치","windlass":"양묘기",
+"anchor":"앵커","mooring":"계류","lifting appliance":"하역설비","bilge":"빌지","ballast":"밸러스트",
+"cargo tank":"화물창","bulkhead":"격벽","watertight":"수밀","oiltight":"유밀",
+"scantling":"부재치수","plating":"판재","stiffener":"보강재","primary member":"주부재",
+"corrosion prevention":"부식방지","cathodic protection":"전기방식","coating":"도장",
+"liquefied gas":"액화가스","boil-off gas":"증발가스","cryogenic":"극저온","inert gas":"불활성가스",
+"gas-freeing":"가스프리","vapour return":"증기환원","bunkering":"벙커링",
+"low-flashpoint fuel":"저인화점 연료","fuel cell":"연료전지","risk assessment":"위험도평가",
+"single failure":"단일고장","redundancy":"이중화","manufacturer":"제조자","shipbuilder":"조선소",
+"surveyor":"검사관","in the presence of the surveyor":"검사관 입회 하에",
+"are to be":"~하여야 한다","is to be":"~하여야 한다","shall be":"~하여야 한다",
+"in accordance with":"~에 따라","as applicable":"해당되는 경우","where fitted":"설치된 경우",
+"special consideration":"특별 고려","equivalent":"동등","essential service":"필수용역",
+"cable":"케이블","valve":"밸브","pump":"펌프","pipe":"관","weld":"용접","survey":"검사",
+"approval":"승인","thickness":"두께","arrangement":"배치","equipment":"장비","machinery":"기관",
+"installation":"설치","requirement":"요건","gland":"글랜드","test":"시험"};
+const GK=Object.keys(G).sort((a,b)=>b.length-a.length);
+const GRE=new RegExp('\\b(?:'+GK.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?:es|s)?\\b','gi');
+function gloss(t){return t.replace(GRE,m=>{const w=m.toLowerCase();
+ for(const c of [w,w.slice(0,-1),w.slice(0,-2)]) if(G[c]) return m+'〔'+G[c]+'〕'; return m})}
+/* 한글 → 영문 (규정 원문은 영문이라 그대로는 안 걸린다) */
+const K2E={}; for(const[e,k]of Object.entries(G)) if(!(k in K2E)) K2E[k]=e;
+const KK=Object.keys(K2E).sort((a,b)=>b.length-a.length);
+const KRE=new RegExp(KK.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
+const HAN=/[\uac00-\ud7a3]/;
+function ko2en(q){const s=new Set();let m;KRE.lastIndex=0;
+ while((m=KRE.exec(q))) s.add(K2E[m[0]]); return [...s].join(' ')}
+
+/* ---------- 자료 보관 (IndexedDB) ---------- */
+const DB='lrrules',STORE='files';
+function idb(){return new Promise((ok,no)=>{const r=indexedDB.open(DB,1);
+ r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)})}
+async function idbSet(k,v){const db=await idb();return new Promise((ok,no)=>{
+ const t=db.transaction(STORE,'readwrite');t.objectStore(STORE).put(v,k);t.oncomplete=ok;t.onerror=()=>no(t.error)})}
+async function idbGet(k){const db=await idb();return new Promise((ok,no)=>{
+ const t=db.transaction(STORE,'readonly'),q=t.objectStore(STORE).get(k);
+ q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)})}
+async function idbDel(k){const db=await idb();return new Promise((ok,no)=>{
+ const t=db.transaction(STORE,'readwrite');t.objectStore(STORE).delete(k);t.oncomplete=ok;t.onerror=()=>no(t.error)})}
+
+/* ---------- 검색 ---------- */
+let D=null,HAY='',OFF=null;
+function buildIndex(d){
+ const n=d.rows.length,off=new Int32Array(n+1),parts=new Array(n);let pos=0;
+ for(let i=0;i<n;i++){const t=(d.rows[i][7]+' '+d.rows[i][5]).toLowerCase();
+  off[i]=pos;parts[i]=t;pos+=t.length+1}
+ off[n]=pos;HAY=parts.join('\n');OFF=off;
+}
+function locate(p){let lo=0,hi=D.rows.length-1;
+ while(lo<hi){const m=(lo+hi+1)>>1;if(OFF[m]<=p)lo=m;else hi=m-1}return lo}
+function find(q,docFilter,limit){
+ q=q.trim();if(!q)return{rows:[],err:null};
+ if(HAN.test(q)){const en=ko2en(q);if(!en)return{rows:[],err:'KO'};q=en}
+ const df=docFilter?D.docs.indexOf(docFilter):-1;
+ if(/^\d+(\.\d+)*$/.test(q)){const r=[];
+  for(let i=0;i<D.rows.length;i++){if(D.rows[i][5]===q&&(df<0||D.rows[i][0]===df))r.push(i);
+   if(r.length>=limit)break}
+  return{rows:r,err:null}}
+ const toks=q.toLowerCase().split(/\s+/).filter(Boolean);
+ const main=toks.reduce((a,b)=>b.length>a.length?b:a);
+ const hits=[],seen=new Set();let p=HAY.indexOf(main),scan=0;
+ while(p>=0&&scan<40000&&hits.length<limit*4){
+  scan++;const i=locate(p);
+  if(!seen.has(i)){seen.add(i);
+   if(df<0||D.rows[i][0]===df){
+    const lc=(D.rows[i][7]+' '+D.rows[i][5]).toLowerCase();
+    if(toks.every(t=>lc.includes(t)))hits.push([i,lc.includes(q.toLowerCase())?0:1,D.rows[i][7].length])}}
+  p=HAY.indexOf(main,p+main.length)}
+ hits.sort((a,b)=>a[1]-b[1]||a[2]-b[2]);
+ return{rows:hits.slice(0,limit).map(x=>x[0]),err:null}
+}
+function snippet(text,q){
+ const lc=text.toLowerCase(),t=q.toLowerCase().split(/\s+/).filter(Boolean);
+ let at=-1;for(const w of t){const i=lc.indexOf(w);if(i>=0&&(at<0||i<at))at=i}
+ let s=Math.max(0,at-90),e=Math.min(text.length,s+420);
+ let out=(s>0?'… ':'')+text.slice(s,e)+(e<text.length?' …':'');
+ out=esc(out);
+ for(const w of t){if(w.length<2)continue;
+  out=out.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>')}
+ return out;
+}
+
+/* ---------- 화면 ---------- */
+let MEC=[],timer;
+const q=$('#q'),dsel=$('#d'),out=$('#out'),meta=$('#meta'),note=$('#note'),bar=$('#bar');
+$('#f').addEventListener('submit',e=>{e.preventDefault();run()});
+q.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(run,240)});
+dsel.addEventListener('change',()=>q.value.trim()&&run());
+
+function run(mec){
+ if(!D){openDlg();return}
+ const term=q.value.trim();if(!term)return;
+ const t0=performance.now();
+ const {rows,err}=find(term,dsel.value,60);
+ if(err==='KO'){meta.textContent='';note.hidden=true;
+  out.innerHTML='<div class="empty"><b>용어집에 없는 한글 검색어입니다</b>'+
+   '규정 원문은 영문입니다. 영문으로 입력하거나 아는 한글 용어(충격시험, 안전밸브, 케이블 글랜드 등)를 쓰세요.</div>';return}
+ meta.textContent=(mec?mec.product+' · ':'')+(rows.length?rows.length+'건':'결과 없음')+
+  ` · ${(performance.now()-t0).toFixed(0)}ms`+(mec&&mec.rule?' · 시트상 규정: '+mec.rule:'');
+ if(!rows.length){note.hidden=true;
+  out.innerHTML='<div class="empty"><b>일치하는 조항이 없습니다</b>단어 수를 줄이거나 영문 규정 용어로 바꿔보세요.</div>';return}
+ note.hidden=false;
+ const term2=HAN.test(term)?ko2en(term):term;
+ out.innerHTML=rows.map(i=>{const r=D.rows[i],[dc,pt,ch,sc,sb,cl,pg,tx]=r;
+  const[code,ed]=D.docs[dc].split('|');
+  const crumb=[D.parts[pt],D.chapters[ch],D.sections[sc]].filter(Boolean).join(' › ');
+  return `<article><div class="k"><div class="n">${esc(cl)}</div><div class="doc">${esc(code)}</div>
+   <div class="ed">${esc(ed)}</div><div>p.${pg}</div></div><div class="b">
+   ${crumb?`<div class="crumb">${esc(crumb)}</div>`:''}
+   ${D.subheads[sb]?`<div class="sub">${esc(D.subheads[sb])}</div>`:''}
+   <div class="txt">${snippet(tx,term2)}</div>
+   <div class="acts"><button data-ko="${i}">국문 보기</button><button data-cp="${i}">원문 복사</button></div>
+   <div class="kobox" id="ko${i}" hidden></div></div></article>`}).join('');
+ out.querySelectorAll('[data-ko]').forEach(b=>b.onclick=()=>toggleKo(b));
+ out.querySelectorAll('[data-cp]').forEach(b=>b.onclick=()=>copyText(b));
+}
+function toggleKo(b){const i=b.dataset.ko,box=$('#ko'+i);
+ if(!box.hidden){box.hidden=true;b.textContent='국문 보기';return}
+ if(!box.dataset.done){box.innerHTML=gloss(esc(D.rows[i][7]))+
+  '<em>용어 대역 · 원문이 우선합니다. 문장 번역은 원문 복사 후 번역 앱을 쓰세요.</em>';box.dataset.done='1'}
+ box.hidden=false;b.textContent='국문 숨기기'}
+async function copyText(b){const r=D.rows[b.dataset.cp],[code,ed]=D.docs[r[0]].split('|');
+ const t=`${code} ${ed} ${r[5]} (p.${r[6]})\n${r[7]}`;
+ try{await navigator.clipboard.writeText(t);b.textContent='복사됨'}
+ catch(e){b.textContent='복사 실패'}
+ setTimeout(()=>b.textContent='원문 복사',1400)}
+
+/* ---------- MEC 목록 ---------- */
+function parseCsv(txt){
+ const rows=[];let i=0,f='',row=[],inq=false;
+ while(i<txt.length){const c=txt[i];
+  if(inq){if(c==='"'){if(txt[i+1]==='"'){f+='"';i++}else inq=false}else f+=c}
+  else if(c==='"')inq=true;
+  else if(c===','){row.push(f);f=''}
+  else if(c==='\n'){row.push(f);rows.push(row);row=[];f=''}
+  else if(c!=='\r')f+=c;
+  i++}
+ if(f||row.length){row.push(f);rows.push(row)}
+ if(!rows.length)return[];
+ const head=rows[0].map(h=>h.trim());
+ const pick=(r,...names)=>{for(const n of names){const j=head.indexOf(n);if(j>=0&&r[j]&&r[j].trim())return r[j].trim()}return''};
+ return rows.slice(1).filter(r=>r.length>1).map(r=>({
+  product:pick(r,'Product','product','품목'),
+  category:pick(r,'DWB Asset Category','Category','카테고리'),
+  type:pick(r,'Asset Type','Type','유형'),
+  rule:pick(r,'LR Rule','Rule','규정'),
+  terms:pick(r,'Search Terms','Keywords','검색어')||pick(r,'Product','product','품목')
+ })).filter(m=>m.product)}
+function renderMec(){
+ const el=$('#mec');
+ if(!MEC.length){el.innerHTML='<div style="padding:13px;font-size:13px;color:#7b8fa0">'+
+  'MEC 목록이 없습니다. 위 <b>CSV 불러오기</b>로 시트를 내보낸 파일을 넣으세요.</div>';return}
+ let last='',h='';
+ MEC.forEach((m,i)=>{if(m.category!==last){h+=`<div class="cat">${esc(m.category||'기타')}</div>`;last=m.category}
+  h+=`<button class="item" data-i="${i}">${esc(m.product)}${m.rule?`<small>${esc(m.rule)}</small>`:''}</button>`});
+ el.innerHTML=h;
+ el.querySelectorAll('.item').forEach(b=>b.onclick=()=>{
+  el.querySelectorAll('.item').forEach(x=>x.removeAttribute('aria-current'));
+  b.setAttribute('aria-current','true');
+  const m=MEC[+b.dataset.i];q.value=m.terms||m.product;run(m);
+  if(innerWidth<900)document.querySelector('main').scrollIntoView({behavior:'smooth'})})}
+$('#btnMec').onclick=()=>$('#mecFile').click();
+$('#mecFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;
+ const txt=await f.text();MEC=parseCsv(txt);await idbSet('mec',txt);renderMec()};
+
+/* ---------- 자료 불러오기 ---------- */
+const dlg=$('#dlg');
+function openDlg(){$('#dlgState').textContent=D
+ ?`현재 자료: ${D.meta.map(m=>m.code+' '+m.edition).join(', ')} · 조항 ${D.rows.length.toLocaleString()}개 (생성 ${D.built})`
+ :'저장된 자료가 없습니다. 배포받은 파일을 선택하세요.';dlg.showModal()}
+$('#btnData').onclick=openDlg;
+$('#dlgClose').onclick=()=>dlg.close();
+$('#dlgClear').onclick=async()=>{await idbDel('data');location.reload()};
+$('#file').onchange=async e=>{const f=e.target.files[0];if(!f)return;
+ const buf=await f.arrayBuffer();
+ try{await useData(buf,f.name);await idbSet('data',{buf,name:f.name});dlg.close()}
+ catch(err){$('#dlgState').textContent='파일을 읽지 못했습니다: '+err.message}};
+
+async function gunzip(buf){
+ if(typeof DecompressionStream==='undefined')throw new Error('이 브라우저는 압축 해제를 지원하지 않습니다. 최신 Chrome을 쓰세요.');
+ const ds=new DecompressionStream('gzip');
+ const s=new Blob([buf]).stream().pipeThrough(ds);
+ return await new Response(s).text()}
+async function useData(buf,name){
+ bar.hidden=false;bar.firstElementChild.style.width='25%';
+ const txt=(name||'').endsWith('.gz')?await gunzip(buf):new TextDecoder().decode(buf);
+ bar.firstElementChild.style.width='60%';
+ const d=JSON.parse(txt);
+ if(!d.rows||!d.docs)throw new Error('형식이 맞지 않습니다.');
+ D=d;buildIndex(d);
+ bar.firstElementChild.style.width='100%';setTimeout(()=>{bar.hidden=true;bar.firstElementChild.style.width='0'},300);
+ $('#cnt').textContent=`조항 ${d.rows.length.toLocaleString()}개 · ${d.meta.map(m=>m.edition).filter((v,i,a)=>a.indexOf(v)===i).join('/')}`;
+ dsel.innerHTML='<option value="">전체</option>'+d.docs.map(s=>
+  `<option value="${esc(s)}">${esc(s.split('|')[0])}</option>`).join('');
+ out.innerHTML='<div class="empty"><b>준비됐습니다</b>왼쪽에서 검사항목을 고르거나 위에 검색어를 입력하세요.</div>';
+}
+
+(async function boot(){
+ try{const m=await idbGet('mec');if(m)MEC=parseCsv(m)}catch(e){}
+ if(!MEC.length){try{const r=await fetch('mec.csv');if(r.ok)MEC=parseCsv(await r.text())}catch(e){}}
+ renderMec();
+ try{const s=await idbGet('data');if(s&&s.buf)await useData(s.buf,s.name)}catch(e){console.warn(e)}
+ if('serviceWorker'in navigator){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
+})();
+</script>
+</body>
+</html>
