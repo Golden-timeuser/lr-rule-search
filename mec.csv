@@ -1,51 +1,802 @@
-Product,DWB Asset Category,Asset Type,Unit,LR Rule,Search Terms
-Main switchboard,Electrical,Switchgear,set,,switchboard main busbar
-Emergency switchboard,Electrical,Switchgear,set,,emergency switchboard source of power
-Distribution board,Electrical,Switchgear,set,,distribution board final circuit
-Circuit breaker,Electrical,Protection,pc,,circuit breaker short circuit protection
-Cable and cable gland,Electrical,Cable,lot,,cable gland enclosure ingress
-Generator,Electrical,Rotating machine,set,,generator prime mover excitation
-Electric motor,Electrical,Rotating machine,set,,electric motor insulation temperature rise
-Transformer,Electrical,Static equipment,set,,transformer winding insulation
-Battery and charger,Electrical,Storage,set,,battery ventilation charging
-Ex-proof equipment,Electrical,Hazardous area,pc,,explosive gas atmosphere certified safe type
-Diesel engine (main),Machinery,Prime mover,set,,reciprocating internal combustion engine crankshaft
-Diesel engine (auxiliary),Machinery,Prime mover,set,,auxiliary engine type test
-Turbocharger,Machinery,Prime mover part,pc,,turbocharger overspeed containment
-Reduction gear,Machinery,Transmission,set,,gearing tooth loading
-Propeller shaft,Machinery,Shafting,pc,,shafting propeller shaft alignment
-Steering gear,Machinery,Deck machinery,set,,steering gear rudder actuator
-Windlass and mooring winch,Deck,Deck machinery,set,,windlass anchor mooring winch
-Lifting appliance,Deck,Lifting,set,,lifting appliance crane proof load
-Hatch cover,Deck,Closing appliance,set,,hatch cover securing weathertight
-Watertight door,Deck,Closing appliance,pc,,watertight door closing
-Pump (bilge / ballast),Piping,Rotating machine,set,,bilge pump ballast capacity
-Pump (fire),Piping,Rotating machine,set,,fire pump capacity emergency
-Valve (Class I / II),Piping,Valve,pc,,valve class I piping design pressure
-Relief valve,Piping,Valve,pc,,relief valve set pressure discharge
-Pipe and fitting,Piping,Pipe,lot,,pipe fitting design temperature thickness
-Flexible hose,Piping,Pipe,pc,,flexible hose burst pressure
-Expansion joint,Piping,Pipe,pc,,expansion joint bellows
-Heat exchanger,Piping,Pressure equipment,set,,heat exchanger pressure vessel test
-Air receiver,Piping,Pressure equipment,pc,,air receiver starting air pressure vessel
-Boiler,Machinery,Pressure equipment,set,,boiler safety valve water level
-Steel plate and section,Material,Rolled steel,ton,,rolled steel plate impact test grade
-Steel forging,Material,Forging,pc,,forgings mechanical tests heat treatment
-Steel casting,Material,Casting,pc,,castings non-destructive examination
-Iron casting,Material,Casting,pc,,iron castings spheroidal graphite
-Copper alloy pipe,Material,Non-ferrous,lot,,copper alloy pipes annealed thickness
-Aluminium alloy,Material,Non-ferrous,lot,,aluminium alloy welding temper
-Welding consumable,Material,Welding,lot,,welding consumables approval filler
-Anchor and chain cable,Deck,Outfitting,set,,anchor chain cable proof test
-Wire rope,Deck,Outfitting,lot,,wire rope breaking load
-Fire detection system,Safety,Fire,set,,fire detection smoke detector alarm
-Fixed fire extinguishing system,Safety,Fire,set,,fixed fire extinguishing medium release
-Gas detection system,Safety,Fire,set,,gas detection detector flammable
-Life saving appliance,Safety,LSA,set,,life saving appliance launching
-Emergency shutdown system,Control,Safety system,set,,emergency shutdown fail-safe initiation
-Control and monitoring system,Control,Automation,set,,control alarm monitoring safety system
-Remote control system,Control,Automation,set,,remote control bridge manoeuvring
-Bunker manifold and ERC,Gas,Bunkering,set,,emergency release coupling manifold bunker
-Vapour return system,Gas,Bunkering,set,,vapour return line pressure control
-Reliquefaction plant,Gas,Cargo handling,set,,reliquefaction refrigerating plant compressor
-Cryogenic valve,Gas,Valve,pc,,cryogenic low temperature service valve
+﻿product,dwb_asset_category,dwb_asset_type,dwb_unit,lr_rule,fee_parameter,Search Terms
+"(Cargo Hold, Eng Rm. And etc) Exh Fan",Ex. Proof Fan or Ventilator,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,explosive gas atmosphere certified safe
+10K SOPFF,Pipe Fittings,Machinery Equipment,batch,,Section 12.7,pipe fittings
+1st stage cylinder,Statement of work,Other Services,batch,,Time base,
+2-Way Temp Control Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+2nd Shaft and Chain Drum for windlass,structure,Hull equipment,batch,,Section 8.5,structural arrangements scantlings
+AC Generator,AC Generator,Electrical Equipment & Component,,,Section 5.2,main source electrical power
+AC Motor,AC Motor,Electrical Equipment & Component,,,Section 5.1,electric motor insulation
+ACCESS & SMALL HATCH,Closing appliance(Doors),Outfitting Equipment & Component,batch,,Section 11.6,watertight doors closing
+Accommodation Ladder (PORT & STBD),Ladders and equipment,Hull equipment,PCS,CLASS HULL Parts 2 & 3,Section 8.4,ladders access arrangements
+Accommodation Ladder and Winch,Ladders and equipment,Hull equipment,PCS,CLASS HULL Parts 2 & 3,Section 8.4,ladders access arrangements
+Accumulator Block,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Accumulator Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,q'ty,Section 12.7,pipe fittings
+Accumulator Shell,Steel forgings as forged,Materials,batch,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+ACCUMULATOR STAND,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+ACTUATION CONTROL UNIT,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Actuator,Actuator for valve,Machinery Equipment,batch,CLASS MACH Part 5,Valve Dia (mm),valve actuator remote
+Actuator Body,Cast iron as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,iron castings spheroidal graphite
+Actuator Housing and cover,Steel forging as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+ADAPTER,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Air Cooler (Plate type heat exchanger),Heat exchanger Plate Type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Air Driven Diaphragm Pump,Displacement Pumps,Machinery Equipment,,,Section 10.1,pumps machinery
+Air Drying Package,Unfired Pressure vessel,Pressure vessels,pcs,,Section 12.6,pressure vessels
+Air release & Vacuum Relief Valve (3rd party),Statement of work,Other Services,pcs,,hour,
+Air Reservoir,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Air reservoir for em'cy shut-off valves,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Air reservoir for quick closing,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+"Air Reservoirs for Main, Auxiliary, General Service and Control",Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+air vent,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Air Vent Plug,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Air Vent Trap & Air vent,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Al. Round bar,Bar Profiles,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.3 or Section 4.5,rolled steel bars sections
+Alarm Monitoring System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+ALS CHAMBER,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+ALTERNATIVE MARITIME POWER SWITCHBOARD (AMP),Electrical console/panel,Electrical Equipment & Component,pcs,q'ty,Section 5.9,switchboard
+Aluminum Wedge,Bolts,Engine & Propulsion Components,batch,,Section 10.9,bolts securing arrangements
+AMS Hardware,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+Anchor,Anchor,Hull equipment,kg,,Section 8.1,anchors equipment number
+ANCHOR CHAIN CABLE,Anchor chain cable,Hull equipment,Batch,,Section 8.2,chain cables proof test
+Anchor Strip,Anchor Strip,,,,Section 13.6,anchors equipment number
+"Anchor Strip, Sus Corner",Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+Anchor windlass,Windlass,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,Cable dia(mm),windlass anchor handling
+Angle Body,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Atmospheric Dump Condenser / Drain Cooler for Gas Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+Atmospheric Water Bath with Helical Coil,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+"Automatic(Manual) BUS transfer, casualty power terminal",Statement of work,Other Services,batch,CLASS ELEC Part 6,hour,
+AUX AIR RESERVOIR,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Aux. Boiler LSMGO Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Auxiliary AC Motor,AC Motor,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.1,electric motor insulation
+Auxiliary Central F.W. Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Axial Check Valve / Wafer,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Axial Flow Check Valve (Wafer & Screw),Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Axial Piston Pump,Displacement Pump,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+B.O.G Pipe,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+Backflow Preventer Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Ball float type steam trap,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+BALL TRAP BODY,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Ballast control Console,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Ballast Water Management System,Ballast Water Treatment System (CLASS),Machinery Equipment,q'ty,,Section 5.7,ballast water treatment
+Bare Type Heating Coil,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Barrel,Pump Barrel,Engine & Propulsion Components,batch,CLASS MACH Part 5,q'ty,pumps machinery
+Bearing cover crankpin,Cast iron as rough machined,Materials,,,Section 4.2,iron castings spheroidal graphite
+BEARING COVER UNDERSIZE,Bearing Caps,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bearings lubrication
+Bearing Shell,Bearing Caps,Engine & Propulsion Components,batch,,Section 10.9,bearings lubrication
+Bed & Frame,structure,Hull equipment,batch,,Section 8.5,structural arrangements scantlings
+bed plate,Engine Bedplate,Engine & Propulsion Components,,,Time base,engine structural components
+BILGE PRIMARY TANK WITH HEATING COIL,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+BLADDER ACCUMULATOR,Accumulator for VRCS (Valve Remote Control System),Machinery Equipment,batch,,q'ty,hydraulic accumulator
+Bladder Type Accumulator,Accumulator for VRCS (Valve Remote Control System),Machinery Equipment,Batch,,,hydraulic accumulator
+Blank plate,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,,Section 12.7,pipe fittings
+Blow Off Valve,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,,,Section 10.9,fuel injection valve
+BOG Compressor,Reciprocating Compressors,Machinery Equipment,pcs,CLASS MACH Part 5,capacity(m3/hr),air compressor pressure
+BOG Compressor Skid Control Panel,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+BOG Compressor Skid Unit,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+BOG COMPRESSOR SYSTEM,Starter,Electrical Equipment & Component,pcs,,Section 5.8,motor control gear
+BOG PIPE FOR AUX BOILER,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+BOG Pipe Piece,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+BOILER F.O SUPPLY UNIT,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+BOSS,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+"Boss, Flange","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,,Section 12.7,pipe fittings
+BOSUN STORE DAVIT,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Bottom piece,Hydraulic block or cylinder,Engine & Propulsion Components,,,,hydraulic cylinder pressure
+Bow thruster,Bow Thruster (Auxiliary),Hull equipment,pcs,CLASS MACH Part 5,Section 8.3,thruster propulsion
+BOW THRUSTER STARTER,Starter,Electrical Equipment & Component,pcs,,Section 5.8,motor control gear
+Bridge Control Console (BCC),Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Bridge Wing Console,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Bucket Strainer,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+BUNKERING STATION SKID,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+"Burner Control Unit for LP SCR,",Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Butterfly valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Butterfly valve Body,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+BUTTERFLY VALVE LUG TYPE,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Butterfly Valves,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+By pass Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+CAPSTAN,Mooring and towing,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,Cable dia(mm),mooring towing arrangements
+"Carbon Pipe Fittings(elbow, tee, reducer, etc)","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+CARBON SEAMLESS PIPE,Pipes and Tubes,Materials,kg,,Section 4.5 or Section 4.6,pipes tubes material
+Carbon Steel Pipe ,Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5 or Section 4.6,pipes tubes material
+Carbon Steel Pipe Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Carbon/Stainless Steel Pipe Fitting,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Cargo Control Console,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Cargo Economizer,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Cargo M/C Room Seervice Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Cargo Monitoring System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+Cargo Pump Trunk,Structure,Hull equipment,,,,structural arrangements scantlings
+Cargo reducing piece,piping,Machinery Equipment,batch,,Section 10.10,piping system design pressure
+Cargo switchboard,Main switchboard,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.6,main switchboard busbar
+Casting for Butterfly Valve Body,Cast iron as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,iron castings spheroidal graphite
+Casting for copper plate,Copper  alloy casting as cast,Materials,kg,CLASS MACH Part 5,Section 4.2,copper alloy castings
+Casting for Valve,Copper alloy casting as cast,Materials,kg,,Section 4.2,copper alloy castings
+casting for Valve bosy and bonnet,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Central F.W Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Centrifugal Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+CENTRIFUGAL TYPE for BALLAST PUMP,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+CENTRIFUGAL TYPE for CARGO COOLING S.W. PUMP,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Chain Block,Statement of work,Other Services,,,,
+CHAIN COMPRESSOR,Chain Stopper for Windlass,Outfitting Equipment & Component,batch,,Section 8.9,chain stopper
+"CHAIN STOPPER, FLAIEAD, STRONG POINT, & CHOCK FOR EMERGENCY TOWING SYSTEM (ETS)",Mooring and towing,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 8.9,mooring towing arrangements
+Chain Wheel,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+"CHANNEL, U-FRAME and SUS PLATE for LIQUID DOME",Bolts,Engine & Propulsion Components,batch,,Section 10.9,bolts securing arrangements
+charcoal Filter,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+CLOSED CHOCK,Steel Castings as Final Machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+CO2 Manifold,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+CO2 Manifold Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Cold provisions chamber,Statement of work,Other Services,pcs,,hour,
+COMPACT TYPE BALL VALVE,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Composite Boiler LSMGO Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Compressor Room Service Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Con Flange Valve Body,Steel Casting as rough machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Con Rod Bolt,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Con Rod Screw,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Condensate Accumulator,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Condensate Flash Drum,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Connecting Rod,Connecting Rod,Engine & Propulsion Components,,,Section 4.3,connecting rod engine
+CONROD AS FORGED,Steel forgings as forged,Materials,batch,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Control Air Compressor,Screw compressors,Machinery Equipment,pcs,CLASS MACH Part 5,capacity(m3/hr),screw compressor
+CONTROL AIR RESERVOIR,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Control Air Reservoir for EGR,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Control Oil High Pressure Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+control panel for Elec. Glycol heater,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Control Panel for Fixed Local Application Fire-Fighting System,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Control Panels for EGCS,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Control Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Conventional Safety Relief Valve,Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+COOLING JACKET,Cooling Jacket,Engine & Propulsion Components,batch,CLASS MACH Part 5,q'ty,engine cooling water
+Copper Alloy ,Pipes and Tubes,Materials,kg,,Section 4.5 or Section 4.8,pipes tubes material
+"Copper alloy valve, cast bronze valve",Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+COPPER AOLLY casting for valve body,Copper  alloy casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,copper alloy castings
+Copper Pipe and Tube ,Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5 or Section 4.8,pipes tubes material
+Copper Tube,Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5 or Section 4.8,pipes tubes material
+Coupling Bolts,Coupling Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,coupling bolts shafting
+Cover for Bleed Valve / Connecting Piece for Bleed Valve,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Cover for piston_GAS ADMISSION VALVE,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,,,Section 10.9,fuel injection valve
+"COVER, FLANGE, TUBESHEET, COUPLING","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Crank Pin Bolt,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Crank shaft,Cast iron as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,iron castings spheroidal graphite
+Crank Shaft for Air Compressor,Steel forgings as final machined,Materials,batch,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Crank Throw for Engine,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Crankshaft,Crankshaft (Forged),Engine & Propulsion Components,pcs,,Section 4.3 or Section 7.6,crankshaft design
+CRB Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+crosshead bearing cap for M/E,Bearing Caps,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bearings lubrication
+Crosshead bearing cover for M/E,Bearing Caps,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bearings lubrication
+Crosshead Bearing(upper/Lower) for M/E,bearings,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bearings lubrication
+Crosshead pin,Crosshead pin,Engine & Propulsion Components,batch,CLASS MACH Part 6,Section 4.3,crosshead pin engine
+Cryogenic Safety Relief Valve (Conventional & Pilot Type),Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+Cryogenic Safety Valve,Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+Cryogenic Valve,Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+Cryogenic Y-strainer,Strainer,Machinery Equipment,batch,,Section 10.9,filters strainers
+Custody Transfer System & Tank Overfill Protection System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+Cylinder Cover,Cylinder Head (Forged),Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.3,cylinder head engine
+Cylinder cover,Steel forging as Rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Cylinder Head Bore,Cylinder Head (Cast),Engine & Propulsion Components /,batch,,Section 4.2,cylinder head engine
+Cylinder Liner,Cylinder Liner,Engine & Propulsion Components,batch,,Section 4.2,cylinder covers
+Cylinder Tube for Steering Gear,Hydraulic block or cylinder (Lifting Appliances),Lifting Appliances,batch,Lifting Appliances,Liter,hydraulic system components
+Cylinder Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Cylinder Valve (Steam Trap),Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+"Cylinder, Cylinder Head for Air Compressor",Cast Iron as Final Machined,Materials,kg,CLASS MACH Part 5,Section 4.2,iron castings spheroidal graphite
+Davit,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+DAVIT FOR STEERING GEAR ROOM,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Davit(Trolley type),Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Discharge cooler,Heat Exchanger Shell Type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+DOUBLE WALL GAS (PIPE with) BELLOWS(Expansion Joint),Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+Double wall pipe,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+Double wall pipe spool,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+"Drain Chamber, Discharge pipe for Air Compressor",Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Drum type heating coil,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+DRY POWDER TANK,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Dry-Transformer,Transformer,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,kVA,transformer winding insulation
+Dual Plate Check Valve,Cryogenic Valve,Machinery Equipment,batch,,Section 10.5,valves low temperature service
+Dual Plate Check Valve,valves,Machinery Equipment,batch,,Section 10.5,valves fittings piping
+DUCT FOR BOW THRUSTER,Bow thruster duct,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 8.5,side thruster
+Dump/Drain Cooler,Heat exchanger shell type,Pressure Vessels,pcs,,Section 12.4,heat exchangers
+Duplex / Simplex Oil Strainer,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+Duplex Stainless Steels Casting for Y-Strainer Body and Cover,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Dynamic-A,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+E/R Overhead Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+ECC,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Elbow,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Elbow ERW,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Elbow for pressure vessel,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Elbow SML,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+"Elbow, reduce, fitting","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+"Elbow, Reducer, Fitting","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Elec. Chain Hoist,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Elec. Heater for L.O purifier,Fuel /Lub Oil Purifier Heaters,Pressure Vessels,pcs,CLASS MACH Part 6,"Area(Cooling surface, m2)",oil heater pressure vessel
+Electo-Hyd. Actuator,Actuator for valve,Machinery Equipment,batch,CLASS MACH Part 5,Valve Dia (mm),valve actuator remote
+ELECTRIC FREQUENCY CONVERTER(VFD) FOR SCRUBBER SYSTEM,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Electrical cables,Electrical cables,Electrical Equipment & Component,Batch,,Section 5.3,electric cables construction
+Electro Chamber Module,statement of works,other service,,,,
+Electro-Hydraulic Steering Gear,Steering gear,Outfitting Equipment & Component,pcs,CLASS MACH Part 5,R/Stock Dia(mm),steering gear rudder actuator
+Elevator,Passenger and crew lift,Lifting Appliances,pcs,Lifting Appliances,hour,passenger lift
+EM'CY CARGO PUMP HANDLING DAVIT,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+EM'CY G/E MGO TANK / CASCADE TANKS WITH OBSERVATION TANK,Tank,Machinery Equipment,pcs,"CLASS MACH Part 5
+CLASS HULL Parts 2 & 3",Section 10.11,tank structural test
+Em'cy Pressure Relief Hatch,Statement of work,Other Services,pcs,,,
+Em'cy Shut-off Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Em'cy Towing System with Escorting Pull Back System (AFT),Mooring and towing,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,q'ty,mooring towing arrangements
+Em'cy Towing System(FWD),Mooring and towing,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,q'ty,mooring towing arrangements
+Emergency switchboard,Emergency switchboard,Electrical Equipment & Component,pcs,,Section 5.6,Emergency switchboard
+Enclosure for Gas Regulating Unit,Enclosure for Gas Valve unit,Machinery Equipment,batch,,Time base,gas valve unit
+END COVER,Top piece for engine,Engine & Propulsion Components,batch,,q'ty,engine structural components
+End Plate,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 7,Section 12.7,pipe fittings
+Energy Saving System for MCSW Pump,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+ENGINE CONTROL CONSOLE,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Engine Room Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Engine room fan control panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Engine room supply fan control panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+ERW Pipe (LR Approved Manufacturer),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.6,pipes tubes material
+ERW Pipe (Survey requested by distributor company (not LR Approved mill maker)),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5,pipes tubes material
+Exhaust Valve Housing,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,,Section 10.9,fuel injection valve
+Expansion Joint,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Expansion Seal for LNG Fuel Tank Dome,Expansion Seal,Machinery Equipment,batch,CLASS MACH Part 5,q'ty,expansion joint bellows
+Expansion Seal for LPG Cargo Tank Dome,Expansion Seal,Machinery Equipment,batch,CLASS MACH Part 5,q'ty,expansion joint bellows
+Expansion tank,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+Expansion Vessel,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+F.O hose Handling Davit,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+F.O Piping,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+F.O. PRE-HEATER FOR M/E & G/E,Heat Exchanger Shell Type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+F.W Hydrophore Tank,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+F.W. Hyd. Tank,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Fabricated Pipe Spool,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+Fabricated Pipe Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Fabricated Pipes,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Fabricated Steel Pipe Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Fairlead Shackle,"Mooring fittings (bollards, fairleads, roller chocks, hawsers)",Outfitting Equipment & Component,batch,,hour,mooring towing arrangements
+Feed Air Compressor for N2 Generator,Screw compressors,Machinery Equipment,pcs,CLASS MACH Part 5,capacity(m3/hr),screw compressor
+Feed Water Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Feul Oil Piping,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+FGS Room Davit,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+FGSS CATCH & PURGE TANK,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Fibre Rope for Mooring(& fibre rope 의 용도가 불문명 할 경우),Mooring Rope,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Q'ty,mooring ropes
+Fibre Rope for Towing(LA5),Fibre Rope (LA5),Lifting Appliances,batch,CLASS HULL Parts 2 & 3,Q'ty,fibre ropes
+Filter,Strainer,Machinery Equipment,batch,,Section 10.9,filters strainers
+Filter for Gas Regulating Unit,Strainer,Machinery Equipment,batch,,Section 10.9,filters strainers
+Filter Separator,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+FIXED GAS DETECTION SYSTEM,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+Fixed Local Application Fire-Fighting System,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Flame arrester (3rd party),Statement of work,Other Services,pcs,hour,hour,
+Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Flange,Steel forging as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Flange Coupling,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+"FLANGE FOR GAS VALVE TRAIN, fitting","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+FLANGE FOR HCUS BLOCK,"Hydraulic  Block or Cylinder, Bar Profiles",Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Flange for PIV,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,,,Section 12.7,pipe fittings
+Flange RF SO,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Flange Screw,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Flange Shaft,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+"Flange, Boss, Tubesheet","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+"Flange, Fitting","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+FLEXABLE RUBBER HOSE ASSEMBLY,Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+FLEXIBLE HOSE / RUBBER COMPENSATOR,Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Flexible Hose Assembly,Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+FLOW LIMITING VALVE,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Forged Carbon Steel,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged Duplex Stainless Steel,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Forged forged Flange (Finished Condition),"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS HULL Parts 2 & 3,Section 12.7,pipe fittings
+Forged Pintle Nut,Steel forgings as forged,Materials,kg or ton,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged Ring,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged Square Bar for Flange,Bar Profiles,Materials,kg,CLASS MACH Part 5,Section 4.3 or Section 4.5,rolled steel bars sections
+Forged Stainless & Carbon Steel for Flanges,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged Stainless Steel,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged Steel,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forged steel for Flange,Pipe Fittings,Machinery Equipment,batch,,Section 12.7,pipe fittings
+Forging Flange,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forging for Flange,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Forging Ring,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+FORGING ROUND BAR,BAR PROFILES,Materials,kg,,Section 4.3 or Section 4.5,rolled steel bars sections
+FPP PROPELLER,FPP Propeller,Engine & Propulsion Components,pcs,CLASS MACH Part 5,ton,propeller design
+Frame Box,Frame Box,Engine & Propulsion Components,,,,Frame Box
+Fuel & Starting air pipe,Pipng,Machinery Equipment,batch,,Section 10.10,piping system design pressure
+Fuel HP Pump VFD Starter Panel,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Fuel Oil High Pressure Pipe for Engine,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Fuel oil HP Block ass'y,Hydraulic  Block or Cylinder,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Fuel Oil Injection Pipe for Aux. Diesel Engine,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Fuel Oil Pipe for Engine,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Fuel Valve Train,Machinery and piping system,Machinery Equipment,pcs,,Time base,machinery piping systems
+Fully Balanced HHP Steel Anchor(Fabricated Anchor),Anchor (Fabricated),Hull Equipment,kg or ton,CLASS HULL Parts 2 & 3,Section 8.1,anchors equipment number
+FWD switchboard,Main switchboard,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.6,main switchboard busbar
+G.W COOLER / heater,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 6,Section 12.4,plate heat exchanger
+G/E F.O SUPPLY UNIT,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+GAS CHAIN PIPE / Gas Distributor Pipe / Gas Fuel Pipe,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+Gas Control Block,Injection Control Unit for  Engine,Engine & Propulsion Components,batch,,,fuel injection control
+Gas Cooler,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+GAS CROSSING ASSEMBLY FOR TRUNK DK,Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+GAS Crossing pipe,Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+"GAS DETECTION SYSTEM, GAS SAMPLING SYSTEM, GDCAB",ELECTRICAL CONSOLE/PANEL,ELECTRICAL EQUIPMENT & COMPONENT,pcs,,Section 5.7,switchboard
+GAS DOME,Gas dome with Covers,LNG/CCS Components,pcs,,Time base,cargo tank dome
+Gas Monitoring Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+GAS REGULATING UNIT,Gas valve units and gas regulation units,Machinery Equipment,batch,CLASS MACH Part 5,Time base,gas valve unit
+Gas Sampling and Detection System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+GAS VALVE TRAIN,Machinery and piping system,Machinery Equipment,pcs,,Time base,machinery piping systems
+Gas Valve Unit,Gas valve units and gas regulation units,Machinery Equipment,batch,CLASS MACH Part 5,Time base,gas valve unit
+Gas Venting valve for D.W piping system,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Gate Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+GE LSMGO Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+GEAR PUMP(L.O. TRANSFER / L.O. DRAIN / F.O. TRANSFER ),"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Gear Wheel Drive Shaft for M/E,gear wheels,Engine & Propulsion Components,batch,,Section 10.9,gear wheels
+GENERAL SERVICE TANK,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+General Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Globe Check Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Globe Valve & Steam Trap,Valves,Machinery Equipment,batch,CLASS MACH Part 6,Section 10.5,valves fittings piping
+Globe/Angle Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Glycol Water Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 6,Section 12.4,heat exchangers
+Glycol Water Heater (ELEC & STEAM TYPE),Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+Group starter panel and individual starter panel,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Guide Flange(Intermediate Flange) for M/E,Guide Flange(Intermediate Flange) for Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,engine structural components
+"H.H.P Anchor Head, Shank and Shackle",Steel castings as final machined,Materials,Kg,,Section 4.2,steel castings mechanical tests
+Hardware for Alarm Monitoring system,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+Hardware for IAS,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+"HBB Body, Cover",Hydraulic  Block or Cylinder,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+HD(LD) Compressor,Cryogenic equipment unit,Cryogenic Other,pcs,CLASS RMC Part 6,Section 13.1,low temperature service materials
+HD(LD) Compressor skid(Package),Machinery and Piping System,Machinery Equipment,pcs,CLASS RMC Part 6,Time base,machinery piping systems
+Head-Fuel Injection Valve,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,fuel injection valve
+Header,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Heating coil,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+HEATING COIL FOR AIR CLR. CHEM. CLEAN W TANK,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Heating Coil for Air Cooler Chemical Clean Water Tank,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+heating coil for L.S.F.O. SERV. TANK,piping,Machinery Equipment,batch,q'ty,Section 10.10,piping system design pressure
+Heating coil for SLOP tank,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Heating Coil Unit,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Heli Safety Net,Statement of work,Other Services,batch,,hour,
+HFO & LFO Purifier Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+High Expansion Foam SYS Main Control Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+High Extension Foam TANK Main Control Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+High Holding Power Anchor,Anchor (Cast Steel),Hull Equipment,kg or ton,CLASS HULL Parts 2 & 3,Section 8.1,anchors equipment number
+High Pressure Gas Cylinder,High Pressure Gas Cylinder(CO2 Cylinder),pressure vessels,batch,,q'ty,gas cylinder pressure
+High Pressure Pipe for Deck Machinery,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+HIGH PRESSURE PUMP SKID,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+High Pressure Pump Skid (HiVAR),Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+High Pressure Pump Skid for LNG Fuel Gas,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+HIGH SEA CHEST GRID,Statement of work,Other Services,batch,,hour,
+High Velocity P/V Relief Valve,Valves,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,Section 10.5,valves fittings piping
+High Velocity Press./Vacuum relief valve,Valves,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,Section 10.5,valves fittings piping
+Hoisting Winch (PORT & STBD),Winches,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,q'ty,mooring winch
+Hook Block Ass'y for Engine Roome Crane,Loose Gear,Lifting Appliances,batch,Lifting Appliances,Section 9.6,lifting appliances loose gear
+Hook Block Assembly for Bosun Store Davit,Loose Gear,Lifting Appliances,batch,,Section 9.6,lifting appliances loose gear
+Horizontal Screw Pump(Jet A-1 Fuel Transfer / Jet A-1 Fuel Service / Jet A-1 Fuel Stripping ),"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Hose Handling Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Hose Handling Crane P/S,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+housing,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,fuel injection valve
+Housing (B) MBD,Hydraulic  Block or Cylinder,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Housing and Head for SAFE GAS ADMISSION VALVE,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,fuel injection valve
+Housing-Gas Injection Valve,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,fuel injection valve
+HP Compressor,Reciprocating compressors,Machinery Equipment,pcs,,capacity(m3/hr),air compressor pressure
+HP Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+HUB/CORNER/BULB CASTING & CARRIER HOUSING,Steel Casting as rough machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Hull Appurter Cover,Closing Appliances (Doors),Outfitting Equipment & Component,batch,,Section 11.6,watertight doors closing
+Hyd. Actuator,Actuator for valve,Machinery Equipment,batch,,Valve Dia (mm),valve actuator remote
+HYd. Cyl for pilot door(H/cover),Hydraulic block or cylinder (Lifting Appliances),Lifting Appliances,batch,Lifting Appliances,Liter,hydraulic system components
+Hyd. Luffing Cylinder,Hydraulic block or cylinder (Lifting Appliances),Lifting Appliances,batch,Lifting Appliances,Liter,hydraulic system components
+Hyd. power pack,Valve Remote Control System,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,m2,valve remote control system
+Hyd. Power Unit,Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 5,m2,valve remote control system
+Hydraulic Actuator,Actuator for valve,Machinery Equipment,batch,CLASS MACH Part 5,Valve Dia (mm),valve actuator remote
+Hydraulic Pipe for Engine,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Hydraulic Power Unit,Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 5,m2,valve remote control system
+Hydraulic Pump for Steering Gear,Displacement Pump,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+HYDRAULIC SAFETY BLOCK FOR ENGINE,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+HYDRAULIC SAFETY BLOCK for M/E,Hydraulic block or cylinder,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Hydro Cylinder (HYD'CYL'),Hydraulic block or cylinder (Lifting Appliances),Lifting Appliances,batch,Lifting Appliances,Liter,hydraulic system components
+Hydro Cylinder for Crane,Hydraulic block or cylinder (Lifting Appliances),Lifting Appliances,batch,Lifting Appliances,Liter,hydraulic system components
+IAS(K-Chief 700) with ESD H.W FAT,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,q'ty,Section 5.7,control alarm monitoring systems
+ICER Heat Exchanger,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+INCINERATOR WASTE OIL TANK WITH HEATING COIL,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+"Injection Control Unit(MEASURING BLOCK, FUEL VALVE BLOCK, PRE CONTROL BLOCK) for M/E",Injection Control Unit for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,q'ty,fuel injection control
+Injector body,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,,Section 10.9,fuel injection valve
+Insulation panel,Insulation panel,LNG/CCS Components,Batch,,,Insulation panel
+Integrated Control & Monitoring System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+"Inter Cooler, After Cooler for Air Compressor","Heat Exchanger(Shell, plate)",Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+Intermedia Piece (MBD),Guide Flange(Intermediate Flange) for Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,engine structural components
+Intermediate Shaft,Intermediate Shaft,Engine & Propulsion Components,pcs,CLASS MACH Part 5,kg,Intermediate Shaft
+Intermediate Shaft,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Intermediate Shaft,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Intermediate Wheel,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+K-Chief 600 for Alarm Monitoring System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+Knock Out Drum for LPG Fuel Safety & Oil Mist Separator,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+KNOCK-OUT DRUM LPG COLLECTING TANK,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Kort Nozzle,Machinery fabricated structure (casing),Machinery Equipment,batch,,Section 12.7,welded construction fabrication
+KSB Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+L.O pump,Displacement Pump,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+LFS EMERGENCY SHUT DOWN SYSTEM,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+LGI Adapter Block,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,,,Section 10.9,fuel injection valve
+LGI Fuel Block ,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,,,Section 10.9,fuel injection valve
+LGI Purge Control Block,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,,,Section 10.9,fuel injection valve
+LNG Cargo components for Repair,Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+LNG Full Reliquefaction System,Reliquefaction system,Refrigeration Equipment & Components,Batch,,hour,Reliquefaction system
+LNG Gas Pocket Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+LNG Manifold Shore Piece Assy,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+LNG QCDC Piece,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+LNG QCDC Short Distance Piece,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+"LNG VAPORIZER, FORCING VAPORIZER , WU HEATER , MIST SEPARATOR, BOG HEATER",Heat Exchanger Shell Type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+"Loading Ring , Nut body",Steel forgings as forged,Materials,kg or ton,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Local Control Cabinet(Sol' Valve Box on deck),"Control, alarm and monitoring",Electrical Equipment & Component,batch,CLASS MACH Part 9,Section 5.7,control alarm monitoring systems
+Local Group Starter Panel,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Local Group Starter Panel for Em'cy Fire Pump,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Local Operating Panel for M/E Remote Control System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+Local Water Mist Fire Extinguishing System for Fire Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Loose Gear(LA3),Loose Gear,Lifting Appliances,batch,,Section 9.6,lifting appliances loose gear
+Low Pressure CO2 Tank,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+LOWER BEARING HALF,Bearing Caps,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bearings lubrication
+LP Forcing Vaporizer & Pre-Heater Skid,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+LPG KNOCK OUT DRUM,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Lub Oil Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Lub. oil tank (LO supply for compressor),Tank,Machinery Equipment,pcs,"CLASS MACH Part 5
+CLASS HULL Parts 2 & 3",Section 10.11,tank structural test
+Lubracant Oil Piping,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+LUG & Plate,Rolled steel,Materials,kg,Ton,Section 4.5,rolled steel plates sections
+LV Main switchboard & Group Starter Panel,Main switchboard,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.6,main switchboard busbar
+LV MID Ship Main Distribution board,Main switchboard,Electrical Equipment & Component,pcs,,Section 5.6,main switchboard busbar
+M/E  Air Cooler Cooling F.W Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+M/E & G/E F.O Steam Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+M/E & G/E L.O Purifier Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+M/E & G/E V.L.S.F.O Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+M/E Buffer Tank,Unfired Pressure Vessel,Pressure Vessels,pcs,,Section 12.6,pressure vessels
+M/E F.O SUPPLY UNIT,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+"M/E G/E F.O HEATER, M/E JACKET PRE-HEATER, AUX. PRE-HEATER",Heat exchanger shell type,Pressure Vessels,pcs,,Section 12.4,heat exchangers
+M/E Jacket Cooling F.W Preheater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+M/E Jacket Cooling F.W. Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+M/E Jacket F.W Preheater (PORT/STBD),Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+M/E Jacket water cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+M/E Jacket Water Preheater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+M/E L.O cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+M/E Lubricating Oil Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+M/E Stern Tube L.O Cooler,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+Mach. Feed Water Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Mach. Feed Water Tank,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Main & Sub Control Panel for Inert Gas System,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+MAIN AIR COMPRESSOR,Reciprocating compressors,Machinery Equipment,pcs,CLASS MACH Part 5,capacity(m3/hr),air compressor pressure
+MAIN AIR RESERVOIR,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+MAIN AIR RESERVOIR NO.1 WITH PIPE,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+"Main Air Reservoir, Aux Air Reservoir",Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Main Block for Gas Valve Train,Hydraulic  Block or Cylinder,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Main Control Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Main Control Panel for BWTS,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Main Control Panel for Scrubber,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Main Engine Remote Control System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+Main Journal,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Main Starting Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Main Switchboard,Main switchboard,Electrical Equipment & Component,pcs,,Section 5.6,main switchboard busbar
+Main Transformer,Transformer,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,kVA,transformer winding insulation
+Manifold for heating coil,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Manifold Pieces,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Manifold Service Crane P/S,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Manual Winch for hoist,Winches,Outfitting Equipment & Component,pcs,,q'ty,mooring winch
+ME CYL OIL SERV,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+ME LSMGO Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+Membrane accumulator,Engine components,Machinery Equipment,batch,,q'ty,Engine components
+Metallic Components for LNG CCS,Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+METALLIC FLEXIBLE HOSE ASSEMBLY,Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+METHANOL LFSS SKID PIPING,Machinery and piping system,Machinery Equipment,pcs,,Time base,machinery piping systems
+MGO Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 6,Section 12.4,plate heat exchanger
+Misc. Butterfly Valves,Valves,Machinery Equipment,batch,CLASS MACH Part 6,Section 10.5,valves fittings piping
+Misc. Fittings - Welding Neck Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Misc. Manifold for OCIMF,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Misc. Pipe Fitting (Flange),"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+"Misc. Pipe Fittings (Elbow, reducer, Flange, etc)","Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Misc. Piping Spools for HD/LD Compressor,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Misc. Stainless Steel Pipe Fitting,Pipe Fittings,Machinery Equipment,batch,,Section 12.7,pipe fittings
+Misc. Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+"Misc. Valve(Butterfly valve, flange type)",Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Misc. Valves,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Mist Separator,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Monitor Vessel,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Monorail Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Motor Control Centre,Starter,Electrical Equipment & Component,pcs,,Section 5.8,motor control gear
+Multistage Vertical Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+N2 Buffer tank,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+N2 Gas Riser,N2 Gas Riser,LNG/CCS Components,pcs,,hour,nitrogen inert gas system
+N2 MANIFOLD,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+N2 Panel,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,,Section 5.7,control alarm monitoring systems
+Naoh Dosing Unit,Machinery and piping system,Machinery Equipment,pcs,,Time base,machinery piping systems
+Needle Body & Bonnet,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Needle STR,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+NIPPLE R-TYPE (SPECIAL),Pipe Fittings,Machinery Equipment,batch,,Section 12.7,pipe fittings
+Nitrogen Purge Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Nut,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+OCIMF Manifold Piece,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+"Oil bilge separator, Oil Content Meter",Marpol Annex I - Oil content meter,Machinery Equipment,pcs,2 STAT - Marine Pollution,Section 10.12,oil filtering equipment
+Oil collector pipe spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+OIL CYLINDER,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Oil Cylinder,Oil Cylinder for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,q'ty,Oil Cylinder for  Engine
+Oil detector,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Oil Heater / Cooler Chemical Clean,Tank,Machinery Equipment,,,Section 10.11,tank structural test
+Oil separator,Unfired Pressure Vessel,Pressure Vessels,PCS,vol(liter),Section 12.6,pressure vessels
+One piece,Hydraulic block or cylinder,Engine & Propulsion Components,,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Orifice Block,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Orifice plate,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Overhead travelling crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Pan Check Valve (Wafer & Screw),Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+PaNOx SCR System Control Panel for G/E,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Pedestal for Compressor Room Service Crane,Structure,Hull equipment,batch,Lifting Appliances,kg,structural arrangements scantlings
+Pedestal for Hose Handling Crane,Structure,Hull equipment,batch,Lifting Appliances,kg,structural arrangements scantlings
+Pedestal for Manifold Service Crane P/S,Structure,Hull equipment,batch,Lifting Appliances,kg,structural arrangements scantlings
+Pedestal for Provision Crane,Structure,Hull equipment,batch,Lifting Appliances,kg,structural arrangements scantlings
+Pilot Operated Safety Relief Valve,Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+"Pilot slant ladder, Hoisting winch/motor",Ladders and equipment,Hull equipment,PCS,CLASS HULL Parts 2 & 3,Section 8.4,ladders access arrangements
+Pin,Bolts,Engine & Propulsion Components,batch,,Section 10.9,bolts securing arrangements
+Pintle,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+PIPE COUPLING FOR MAIN ENGINE,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Pipe Couplings for Engine,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Pipe Couplings for High Pressure Pipe of Engine,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Pipe Fitting,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Pipe Fitting BOSS,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Pipe Fitting Threadolet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Pipe Fittings,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Pipe Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Pipe Spool for BOG Compressor,Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+PIPE SPOOL FOR FRAMO,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Pipe Spools for Bunkering Station Skid,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Piping Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+PISTON,Steel forgings as final machined,Materials,kg,,Section 4.3,steel forgings mechanical tests
+Piston Crown,Piston Crown(Forged),Engine & Propulsion Components,batch,,q'ty,piston crown
+PISTON CROWN,Statement of work,Other Services,batch,,hour,
+Piston Rod,Piston Rod,Engine & Propulsion Components,pcs,CLASS MACH Part 5,kg,Piston Rod
+Plain Trolley,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Plate,Rolled steel,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.5,rolled steel plates sections
+Plywood,Plywood,LNG/CCS Components,Batch,,,Plywood
+Pneu. Control Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Pneumatic Control Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Pneumatic Fender,Statement of work,Other Services,batch,,hour,
+POD VALVE,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Pre-Magneti Transformer,Transformer,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,kVA,transformer winding insulation
+Press./Vacuum relief valve,Valves,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,Section 10.5,valves fittings piping
+Pressure Reducing Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Primary Barrier Components(Membrane),Stainless steel membrane,,,,,membrane containment system
+Primary Pressure Regulating Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Primary Regulating Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Primary Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Propeller Shaft,Propeller Shaft,Engine & Propulsion Components,pcs,CLASS MACH Part 5,kg,Propeller Shaft
+Propeller Shaft,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Propeller Shaft,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Provision Crane,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Provision Crane P/S,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+PROVISON CRANE,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Pulling Bar,Rolled steel,Materials,kg,Q'ty of Heat,Section 4.5,rolled steel plates sections
+Pulsation Damper Discharge,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Pulsation Damper Suction,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Pump,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Pump for Local Fire fighting system,"Dynamic Pump (Centrifugal, Turbine etc)",Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Pump Room Davit,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+PUMP STARTER PANEL FOR SCRUBBER SYSTEM,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Pump Tower Base Support,Pump Tower Base Support,LNG/CCS Components,pcs,,hour,cargo tank supports
+Pump Tower Base Support for GTT Mark III Flex LNG Cargo Containment System,Pump Tower Pump Support,LNG/CCS Components,batch,,hour,cargo tank supports
+PUMP TOWER SUMP WELL,Pump Tower Sump Well,LNG/CCS Components,batch,,hour,cargo tank supports
+PURI. SUPPLY UNIT,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+Purifier Room Piping System Unit,Machinery and Piping System,Machinery Equipment,pcs,CLASS MACH Part 5,Time base,machinery piping systems
+QUICK CLOSING VALVE ( 2 - Way Ball Valve),Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Quick Closing Valve (Master Gas Fuel Valve),Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+R.STOCK WITH SLEEVE (Forged),Steel forgings as final machined,Materials,kg,,Section 4.3,steel forgings mechanical tests
+Reducing valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Refrigerant Receiver,Unfired Pressure Vessel,Pressure Vessels,pcs,,Section 12.6,pressure vessels
+Reinforced Poly-Urethane foam,Reinforced Poly-Urethane foam,LNG/CCS Components,Batch,,,insulation material cargo tank
+Remote Control Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Remote Control Panel for Scrubber,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Remote Control System for Propulsion System,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+Ring Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Ring Plate,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Rotary Vane Type Steering Gear,Steering gear,Outfitting Equipment & Component,pcs,CLASS MACH Part 5,R/Stock Dia(mm),steering gear rudder actuator
+ROTOR SHAFT,Steel forgings as rough machined,Materials,batch,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Rotor shaft assemblies,statement of work,other seervices,q'ty,,hour,
+ROTOR SHAFT FOR MET60MB II TYPE TURBOCHARGER,Steel forgings as rough machined,Materials,batch,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Round Bar,Bar Profiles,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.3 or Section 4.5,rolled steel bars sections
+ROUND BAR FOR BRAKE SCREW OF HYDRAULIC SPRING CYLINDER,Bar Profiles,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.3 or Section 4.5,rolled steel bars sections
+Round bar for Crosshead pin,BAR PROFILES,Materials,kg,,Section 4.3 or Section 4.5,rolled steel bars sections
+Round Bar for Pin,Bar Profiles,Materials,kg,,Section 4.3 or Section 4.5,rolled steel bars sections
+"Round Bar, Square Bar",Bar Profiles,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.3 or Section 4.5,rolled steel bars sections
+Rubber Mat,Statement of work,Other Services,batch,CLASS MACH Part 5,hour,
+"Rudder (Ass'y, Completed, Fabricated)",Rudder & Fabricated Rudder Horn,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,area(m2),rudder horn
+Rudder Hub,Steel forging as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Rudder Hub,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Rudder Stock,Steel forging as Rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Rudder Stock,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Rudder Trunk,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+RUDDER TRUNK / Duct,Rudder Trunk Ass'y,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,kg,rudder trunk
+Rudder Trunk Ass'y,Rudder Trunk Ass'y,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,kg,rudder trunk
+S.W. Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+S/Q Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Safety Body,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Safety Relief Body,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Safety Relief Valve,Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+Safety Relief Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Safety Valve,Cryogenic Valve,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves low temperature service
+safety valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+SCAV. AIR BOX DRAIN TANK,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+SCR Control Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+SCR CONTROL UNIT FOR G/E SCR,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+SCR CONTROL UNIT FOR M/E SCR,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Seamless Pipes (LR Approved Manufacturer),Pipes and Tubes,Materials,kg,,Section 4.6,pipes tubes material
+Seamless Pipes (Survey requested by distributor company (not LR Approved mill maker)),Pipes and Tubes,Materials,kg,,Section 4.5,pipes tubes material
+Seamless Tube (LR Approved Manufacturer),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.6,pipes tubes material
+Seamless Tube (Survey requested by distributor company (not LR Approved mill maker)),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5,pipes tubes material
+Sections for CO2 (Manifold),piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Separator,Unfired Pressure Vessel,Pressure Vessels,pcs,,Section 12.6,pressure vessels
+SERVICE AIR RESERVOIR,Air receivers,Pressure Vessels,PCS,CLASS MACH Part 5,Section 12.6,air receiver starting air
+Sewage Collecting Tank,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+SGAV,Injection Control Unit for  Engine,Engine & Propulsion Components,,,,fuel injection control
+Shaft,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Shaft Piece,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+SHELL & TUBE TYPE HEAT EXCHANGER (M/E JACKET F.W. PRE-HEATER),Heat Exchanger Shell Type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+Shell of Bladder Accumulator,Accumulator for VRCS (Valve Remote Control System),Machinery Equipment,batch,CLASS HULL Parts 2 & 3,q'ty,hydraulic accumulator
+Shifting Winch (PORT & STBD),Winches,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,q'ty,mooring winch
+SHIPSIDE DISTANCE PIPE PIECES,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Shipside Nozzle Piece,Piping,Machinery Equimpent,,,Section 10.10,piping system design pressure
+Shore Connection Panel,Main switchboard,Electrical Equipment & Component,pcs,,Section 5.6,main switchboard busbar
+Shore Gangway,Ladders and equipment,Hull equipment,pcs,,Section 8.4,ladders access arrangements
+Short Distance Piece,Piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Side Scuttle,Windows/Scuttles/Glasses,Outfitting Equipment & Component,pcs,,q'ty,side scuttles windows
+SIMPLEX OIL STRAINER,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+Single Point Mooring System,Mooring and towing,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,q'ty,mooring towing arrangements
+Sleeve,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Sleeve - Special Type for Pipe Fitting,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Sleeve for Rudder Stock,bearings,Engine & Propulsion Components,batch,CLASS HULL Parts 2 & 3,Section 10.9,bearings lubrication
+Sleeve for Rudder stock(upper/Lower),bearings,Engine & Propulsion Components,batch,CLASS HULL Parts 2 & 3,Section 10.9,bearings lubrication
+SML Pipe (LR Approved Manufacturer),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.6,pipes tubes material
+SML Pipe (Survey requested by distributor company (not LR Approved mill maker)),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5,pipes tubes material
+Software of IAS system (SSAS-Master) with Alarm Extension Panel,"Control, alarm and monitoring",Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,control alarm monitoring systems
+Sol valve cabinet / Hyd. power pack,Valve Remote Control System,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,m2,valve remote control system
+Sol. Valve Box,Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 5,m2,valve remote control system
+Sol. Valve cabinet,Valve Remote Control System,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,m2,valve remote control system
+Sol. Valve cabinet / Sol. valve box,Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 7,m2,valve remote control system
+Solenoid Valve Cabinet,Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 5,m2,valve remote control system
+Spectacle,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equimpent,batch,,Section 12.7,pipe fittings
+Spray Nozzle (3rd Party),Statement of work,Other Services,pcs,3 STAT - Fire Protection,hour,
+Sprayer Nozzle,Fire Fighting system and components,Statutory - Fire,,,,Fire Fighting system and components
+Spring type Heating Coil,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Spur Gear for HP Compressor,Gearing/shafts and wheels,Engine & Propulsion Components,batch,,Section 10.9,gearing shafts
+SQ FLANGE BALL VALVE,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Square Bar,Bar Profiles,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.3 or Section 4.5,rolled steel bars sections
+Square Flange,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Stainless Forged Steel Pipe Fitting,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Stainless Steel Angle,Rolled steel,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.5,rolled steel plates sections
+Stainless Steel Coil,Rolled Steel,Materials,kg or ton,CLASS HULL Parts 2 & 3,Section 4.1,rolled steel plates sections
+STAINLESS STEEL FITTING FOR LIQUID DOME,Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+Stainless Steel Flange,Pipe Fittings,Machinery Equipment,batch,,Section 12.7,pipe fittings
+Stainless Steel Flange and Tube Sheet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Stainless Steel Forging,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Stainless Steel Forgings for Flange,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Stainless steel membrane,Stainless steel membrane,LNG/CCS Components,Batch,,,membrane containment system
+Stainless Steel Pipe (LR Approved Manufacturer),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.6,pipes tubes material
+Stainless Steel Pipe (Survey requested by distributor company (not LR Approved mill maker)),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5,pipes tubes material
+Stainless Steel Pipe Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Stainless Steel Pipe Spools for BOG Compressor,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Stainless Steel Pipe Spools for Double Wall Main Gas Pipe,Double wall pipe spools,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,double wall piping
+Stainless steel Tube (LR Approved Manufacturer),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.6,pipes tubes material
+Stainless steel Tube (Survey requested by distributor company (not LR Approved mill maker)),Pipes and Tubes,Materials,kg,CLASS MACH Part 5,Section 4.5,pipes tubes material
+Stainless/Carbon Steel pipe fitting,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,q'ty,Section 12.7,pipe fittings
+Starter & Alarm Panel for Steering Gear,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Starter panel F.O & L.O Purifier,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Starter panel for HP LPG Pump,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Starter Panel for steering gear,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+starter Panel for Water Based Local Fire Fighting System,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+Starting Air Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Starting Air Piping,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+"Starting V/V, By-Pass V/V, Bursting Cap, Compact Ball V/V",Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Stater Panel for Aux. Blower,Starter,Electrical Equipment & Component,pcs,,Section 5.8,motor control gear
+Stay Bolt,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Stay Bolt for M/E,Steel forgings as final machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Steam Heater for tube side,Steam Heater,Pressure Vessels,pcs,CLASS MACH Part 5,"Area(Cooling surface, m2)",Steam Heater
+Steam Heating Coils for Portable Tanks,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Steam trap,Valves,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,Section 10.5,valves fittings piping
+Steel Castig as Finished Machined,Steel Castings as Final Machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Steel Castig as Rough Machined,Steel Casting as rough machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Steel casting as cast,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+"Steel Casting as Cast for Valve, Body, Bonnet",Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Steel casting as rough machined,Steel Casting as rough machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+"Steel Casting for Pan Check Valve Body, Diffuser, Disc",Steel casting as cast,Materials,kg,kg,Section 4.2,steel castings mechanical tests
+Steel Casting for Spring Case(for Control Valves),Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Steel Casting for Valve Body,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Steel casting for valve body and bonnet,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+"steel casting for valve body, bonnet",Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+"Steel Casting for Valve Body, bonnet, etc(as cast)",Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+"Steel Casting for Valve Body, bonnet, etc(as rough machined)",Steel Casting as rough machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+"Steel Casting, Butterfly Valve",Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Steel Forging,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Steel forging for Ring flange and Round Bar,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Steel Forgings for Flange,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Steel Forgings for Pinion,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Steel forgings for Square Bar,Steel forgings as forged,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Steel Plate (De-coiled plate),Rolled Steel,Materials,kg or ton,CLASS HULL Parts 2 & 3,Section 4.1,rolled steel plates sections
+Steel Plate (유통 목적의 Steel plate),Rolled Steel,Materials,kg,,Section 4.5,rolled steel plates sections
+Steel Plate(Equal/Unequal Angle),Rolled Steel,Materials,Ton,CLASS HULL Parts 2 & 3,Section 4.1,rolled steel plates sections
+Steel Wire Rope for Anchor Wire,Steel Wire Rope Products,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Q'ty,wire ropes breaking load
+Steel Wire Rope for Crane(LA4),Steel wire rope (LA4),Lifting Appliances,batch,Lifting Appliances,Q'ty,steel wire rope
+Steel Wire Rope for EM'CY towing,Steel Wire Rope Products,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Q'ty,wire ropes breaking load
+Steel Wire Rope for Lifting Appliance,Steel wire rope (LA4),Lifting Appliances,batch,Lifting Appliances,Q'ty,steel wire rope
+Steel Wire Rope for mooring(& Steel Rope 의 용도가 불분명 할 경우),Mooring Rope,Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Q'ty,mooring ropes
+Steering Gear,Steering Gear,Outfitting Equipment & Component,pcs,CLASS MACH Part 5,R/Stock Dia(mm),steering gear rudder actuator
+Steering Gear Room Davit,Shipboard crane Certification,Lifting Appliances,pcs,Lifting Appliances,Section 9.2,lifting appliances crane
+Steering Gear Starter Panel/Em'cy fire pump,Starter,Electrical Equipment & Component,pcs,,Section 5.8,motor control gear
+STERN BOSS & TUBE,Steel Casting as rough machined,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Stern Tube Assembly,Statement of work,Other Services,pcs,,hour,
+Stern Tube L.O Cooler,Heat exchanger plate type,Pressure vessels,pcs,CLASS MACH Part 5,Section 12.4,plate heat exchanger
+STERN TUBE LO TANK,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+Strainer,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+Strand jack,Hydraulic block or cylinder,Machinery Equipment,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Stud,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Stud Bolt,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+Stud Bolts,Metallic components for LNG/CCS,LNG/CCS Components,Batch,,Section 13.6,low temperature service materials
+suction and discharge damper,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Suction Separator / Vent Gas Separator,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+"SUCTION VESSEL, HEAD PLATE",Unfired Pressure vessel,Pressure vessels,pcs,,Section 12.6,pressure vessels
+Suport for ALS Chamber with Chamber Hatch,Statement of work,other service,batch,,kg,
+Surface Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Surge Chamber,Piping,Machinery Equipment,pcs,,Section 10.10,piping system design pressure
+SUS Corner Stud Bolt,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+"SUS Corner, U-Frame, SPLD, CBLD, Protection Ring",Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+SUS PIIP FITTING,Pipe Fittings,Machinery Equipment,batch,,Section 12.7,pipe fittings
+SUS Pipe Spool,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Suspension for Monorail Hoist,Statement of works,Lifting Appliances,pcs,,,
+Sweepolet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+T-STRAINER,Strainer,Machinery Equipment,batch,,Section 10.9,filters strainers
+Tank Assembly Stream 'A' & 'E',Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Tank Cleaning Heater,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+TANK-SOOT COLLECTING TANK,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+Tee,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Temperature Control Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Temperature Regulating Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Threadolet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Thrust Cam,Steel forgings as rough machined,Materials,kg,CLASS MACH Part 5,Section 4.3,steel forgings mechanical tests
+Thrust Flange,Hydraulic block or cylinder,Hydraulic block or cylinder,Engine & Propulsion Components,batch,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Tiller,Steel Castings as Final Machined,Materials,kg,,Section 4.2,steel castings mechanical tests
+Timing Unit,Injection Control Unit for  Engine,Engine & Propulsion Components,batch,,q'ty,fuel injection control
+Top cover & Housing,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+TOP COVER for M/E,Hydraulic block or cylinder,Engine & Propulsion Components,batch,,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+Top Entry Ball Body & Bonnet,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+TOP PIECE for M/E,Hydraulic block or cylinder,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 4.2 or Section 4.3,hydraulic cylinder pressure
+TOPPING-UP AIR COMPRESSOR,Reciprocating compressors,Machinery Equipment,pcs,CLASS MACH Part 5,capacity(m3/hr),air compressor pressure
+TORSIONAL VIBRATION DAMPER,Torsional vibration damper,Engine & Propulsion Components,pcs,CLASS MACH Part 5,hour,torsional vibration
+TOWING CHAIN CABLE,Anchor chain cable,Hull equipment,Batch,,Section 8.2,chain cables proof test
+Transformer,Transformer,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,kVA,transformer winding insulation
+Transformer for Bow Thruster,Transformer,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,kVA,transformer winding insulation
+Transformer for Lighting system,Transformer,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,kVA,transformer winding insulation
+Tube sheet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Tubesheet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+TURBINE OIL STOR. TANK,Tank,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.11,tank structural test
+U-FRAME and SECONDARY PLATE,Metallic Components for LNG CCS,LNG/CCS Components,batch,,Section 13.6,low temperature service materials
+UPPER SLEEVE / LOWER SLEEVE,BEARINGS,Engine & Propulsion Component,batch,,Section 10.9,bearings lubrication
+Upper/Lower Sleeve,bearings,Engine & Propulsion Components,batch,CLASS HULL Parts 2 & 3,Section 10.9,bearings lubrication
+Vacuum Pump,Displacement Pump,Machinery Equipment,pcs,CLASS MACH Part 5,Section 10.1,pumps machinery
+Vacuum Relief Valve with Gas Free Cover,Valves,Machinery Equipment,batch,CLASS HULL Parts 2 & 3,Section 10.5,valves fittings piping
+Valve,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Valve Body & Bonnet & Cover,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Valve Body and bonnet,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Valve Housing for M/E,Fuel Injection valve Housing  for  Engine,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,fuel injection valve
+VALVE REMOTE CONTROL SYSTEM,Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 5,m2,valve remote control system
+"Valve Remote Control System (HPU, Sol valve cabinet)",Valve Remote Control System,Machinery Equipment,batch,CLASS MACH Part 8,m2,valve remote control system
+Valves,Valves,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.5,valves fittings piping
+Vane,Steel casting as cast,Materials,kg,CLASS HULL Parts 2 & 3,Section 4.2,steel castings mechanical tests
+Vaporizer,Heat exchanger shell type,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.4,heat exchangers
+Vent Gas Cooler,Unfired Pressure Vessel,Pressure Vessels,pcs,CLASS MACH Part 5,Section 12.6,pressure vessels
+Venting Purge Pipe,piping,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.10,piping system design pressure
+Venturi tube,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,,Section 12.7,pipe fittings
+VFD Panel,Starter,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.8,motor control gear
+Vibration Damper,Torsional vibration damper,Engine & Propulsion Components,pcs,CLASS MACH Part 5,hour,torsional vibration
+Washer,Bolts,Engine & Propulsion Components,batch,CLASS MACH Part 5,Section 10.9,bolts securing arrangements
+WATER & WEATHER TIGHT DOOR,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Water & Weather tight Hatch,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Water Monitoring Panel,Electrical console/panel,Electrical Equipment & Component,pcs,CLASS ELEC Part 6,Section 5.7,switchboard
+WATER-TIGHT HATCH,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Watertight Door,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+WaterTight Hatch,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+WaterTight Hatch Air SAV.,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+WaterTight Hatch E.C.R Em'cy,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Watertight Hinged Door,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Watertight Steel Door,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Watertight Steel Doors,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Watertight Steel Hatch,Closing Appliances (Doors),Outfitting Equipment & Component,batch,CLASS HULL Parts 2 & 3,Section 11.6,watertight doors closing
+Welding socket,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Weldment Pipe,Unfired Pressure vessel,Pressure vessels,pcs,,Section 12.6,pressure vessels
+Weldolet,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Weldolet BW,"Pipe Fittings (flange, elbow, tee, reducer and etc)",Machinery Equipment,batch,CLASS MACH Part 5,Section 12.7,pipe fittings
+Wharf ladder,Ladders and equipment,Hull equipment,PCS,CLASS HULL Parts 2 & 3,Section 8.4,ladders access arrangements
+Wharf Ladder,Ladders and equipment,Hull equipment,PCS,CLASS HULL Parts 2 & 3,Section 8.4,ladders access arrangements
+Wilden Pump,Displacement Pumps,Machinery Equipment,,,Section 10.1,pumps machinery
+Winch for Acc Ladder,winches,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,q'ty,mooring winch
+Winch for Accomodation Ladder (PORT & STBD),Winches,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,q'ty,mooring winch
+Windlass,Windlass,Outfitting Equipment & Component,pcs,CLASS HULL Parts 2 & 3,Cable dia(mm),windlass anchor handling
+Window,Windows/Scuttles/Glasses,Outfitting Equipment & Component,pcs,,q'ty,side scuttles windows
+Y STRAINER,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+Y-Strainer,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
+Y-type Strainer,Strainer,Machinery Equipment,batch,CLASS MACH Part 5,Section 10.9,filters strainers
