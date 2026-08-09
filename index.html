@@ -4,28 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#12212e">
-<link rel="manifest" href="manifest.webmanifest">
-<title>LR 규정 검색 · MEC</title>
+<link rel="icon" href="favicon.ico?v=2" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="icon-192.png?v=2" sizes="192x192">
+<link rel="apple-touch-icon" href="icon-180.png?v=2">
+<link rel="manifest" href="manifest.webmanifest?v=2">
+<title>LR Rule Finder · MEC</title>
 <style>
 :root{--ink:#12212e;--ink2:#41586b;--ink3:#7b8fa0;--paper:#f6f4ef;--card:#fff;
- --line:#dcd8cf;--sea:#0b5c7a;--stamp:#9a5b12;--mark:#ffe9a8;--ko:#eef4f7;
+ --line:#dcd8cf;--sea:#0b5c7a;--sea-dk:#0D4665;--stamp:#9a5b12;--mark:#ffe9a8;--ko:#eef4f7;
  --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
  --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 var(--sans)}
-header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9;
+header{background:var(--sea-dk);border-bottom:0;position:sticky;top:0;z-index:9;
  padding-top:env(safe-area-inset-top)}
 .hw{max-width:1180px;margin:0 auto;padding:12px 16px}
-.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.brand b{font-size:14px;letter-spacing:.14em;text-transform:uppercase}
-.brand span{font:11.5px var(--mono);color:var(--ink3)}
-.brand button{margin-left:auto;font:12px var(--sans);background:none;border:1px solid var(--line);
- color:var(--ink2);border-radius:2px;padding:4px 10px;cursor:pointer}
+.brand{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand b{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.brand span{font:11.5px var(--mono);color:#9DB6C6}
+/* 자료가 오래되면 눈에 띄게 — LR 규정은 매년 7월 개정된다 */
+.brand span.stale{color:#FFD166;font-weight:600}
+.brand .btns{margin-left:auto;display:flex;gap:7px}
+.brand button{font:12px var(--sans);background:none;border:1px solid rgba(255,255,255,.45);
+ color:#fff;border-radius:2px;padding:5px 11px;cursor:pointer;white-space:nowrap}
+.brand button:hover{background:rgba(255,255,255,.12)}
+/* 눌러야 할 버튼은 채워서 강조한다. 자료를 넣으면 평소 상태로 돌아가되
+   비활성화되지는 않는다 — 새 판이 나오면 다시 눌러야 하기 때문이다. */
+.brand button.call{background:#fff;color:var(--sea-dk);border-color:#fff;font-weight:700}
+.brand button.call:hover{background:#EAF2F6}
 form{display:flex;gap:8px;margin-top:10px}
-input[type=search]{flex:1;font:16px var(--sans);padding:11px 13px;border:1px solid var(--line);
- border-radius:2px;background:var(--paper);color:var(--ink);min-width:0}
-input[type=search]:focus{outline:2px solid var(--sea);outline-offset:1px;background:#fff}
-select{font:14px var(--sans);padding:11px 8px;border:1px solid var(--line);border-radius:2px;background:var(--card)}
+input[type=search]{flex:1;font:16px var(--sans);padding:11px 13px;border:1px solid transparent;
+ border-radius:2px;background:#fff;color:var(--ink);min-width:0}
+input[type=search]:focus{outline:2px solid #7FC6DF;outline-offset:1px}
+select{font:14px var(--sans);padding:11px 8px;border:1px solid transparent;border-radius:2px;background:#fff}
 .wrap{max-width:1180px;margin:0 auto;padding:16px;display:grid;grid-template-columns:262px 1fr;
  gap:20px;align-items:start}
 aside{position:sticky;top:120px}
@@ -79,8 +90,9 @@ dialog::backdrop{background:rgba(18,33,46,.45)}
 </head>
 <body>
 <header><div class="hw">
- <div class="brand"><b>LR 규정 검색</b><span id="cnt">자료 없음</span>
-  <button id="btnPdf">PDF 연결</button><button id="btnData">자료 관리</button></div>
+ <div class="brand"><b>LR Rule Finder</b><span id="cnt">자료 없음</span>
+  <span class="btns"><button id="btnPdf">PDF 연결</button>
+   <button id="btnData" class="call">자료 관리</button></span></div>
  <form id="f" autocomplete="off">
   <input type="search" id="q" placeholder="일부만 입력해도 됩니다 — cable gla / imp test / 충격시험 / 5.3.4">
   <select id="d"><option value="">전체</option></select>
@@ -439,6 +451,26 @@ async function gunzip(buf){
  const ds=new DecompressionStream('gzip');
  const s=new Blob([buf]).stream().pipeThrough(ds);
  return await new Response(s).text()}
+/* 헤더에 조항 수와 판을 표시한다.
+   LR 규정은 매년 7월에 개정되므로, 자료를 만든 지 13개월이 지나면
+   색을 바꿔 알린다. 1년 뒤에는 갱신해야 한다는 사실 자체를 잊기 때문이다.
+   강제하지는 않는다 — 눈에만 띄게 한다. */
+function showEdition(d){
+ const eds=d.meta.map(m=>m.edition).filter((v,i,a)=>a.indexOf(v)===i).join('/');
+ const el=$('#cnt');
+ let stale=false;
+ if(d.built){
+  const age=(Date.now()-new Date(d.built).getTime())/86400000;
+  stale = age > 395;   // 13개월
+ }
+ el.textContent=`조항 ${d.rows.length.toLocaleString()}개 · ${eds}`
+   +(stale?'  ·  새 판 확인 필요':'');
+ el.classList.toggle('stale',stale);
+ el.title=stale
+  ?`이 자료는 ${d.built} 에 만들어졌습니다. LR 규정은 매년 7월에 개정됩니다. 새 자료 파일을 받아 [자료 관리]에서 교체하십시오.`
+  :`자료 생성일 ${d.built||'알 수 없음'}`;
+}
+
 async function useData(buf,name){
  bar.hidden=false;bar.firstElementChild.style.width='25%';
  const txt=(name||'').endsWith('.gz')?await gunzip(buf):new TextDecoder().decode(buf);
@@ -447,7 +479,10 @@ async function useData(buf,name){
  if(!d.rows||!d.docs)throw new Error('형식이 맞지 않습니다.');
  D=d;buildIndex(d);
  bar.firstElementChild.style.width='100%';setTimeout(()=>{bar.hidden=true;bar.firstElementChild.style.width='0'},300);
- $('#cnt').textContent=`조항 ${d.rows.length.toLocaleString()}개 · ${d.meta.map(m=>m.edition).filter((v,i,a)=>a.indexOf(v)===i).join('/')}`;
+ showEdition(d);
+ // 자료가 들어왔으니 [자료 관리] 강조를 해제한다.
+ // 버튼은 그대로 눌린다 — 새 판이 나오면 다시 써야 하기 때문이다.
+ $('#btnData').classList.remove('call');
  dsel.innerHTML='<option value="">전체</option>'+d.docs.map(s=>
   `<option value="${esc(s)}">${esc(s.split('|')[0])}</option>`).join('');
  out.innerHTML='<div class="empty"><b>준비됐습니다</b>왼쪽에서 검사항목을 고르거나 위에 검색어를 입력하세요.</div>';

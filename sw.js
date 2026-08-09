@@ -8,8 +8,9 @@
 
    핵심은 cache:'reload' 다. 이것이 없으면 fetch 가 브라우저 자체 HTTP
    캐시에서 옛 파일을 그대로 돌려주어, 네트워크 우선으로 짜도 소용이 없다. */
-const V = 'lr-rules-v2';
-const SHELL = ['./', './index.html', './mec.csv', './manifest.webmanifest', './icon.svg'];
+const V = 'lr-rules-v3';
+const SHELL = ['./', './index.html', './mec.csv', './manifest.webmanifest',
+               './favicon.ico', './icon-180.png', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(
