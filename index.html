@@ -54,8 +54,6 @@ mark{background:var(--mark);padding:0 1px}
 .acts button{font:12px var(--sans);padding:6px 11px;border:1px solid var(--sea);color:var(--sea);
  background:none;border-radius:2px;cursor:pointer}
 .acts button:active{background:var(--sea);color:#fff}
-.kobox{margin-top:10px;padding:11px 13px;background:var(--ko);border-left:3px solid var(--sea);font-size:14.5px}
-.kobox em{font-style:normal;color:var(--ink3);font-size:12px;display:block;margin-top:7px}
 .empty{padding:44px 18px;text-align:center;color:var(--ink3)}
 .empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:7px}
 .note{margin:22px 0 44px;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--stamp)}
@@ -239,6 +237,10 @@ function find(q,docFilter,limit){
  hits.sort((a,b)=>a[1]-b[1]||a[2]-b[2]);
  return{rows:hits.slice(0,limit).map(x=>x[0]),err:null}
 }
+/* 크롬 페이지 번역을 켰을 때 규격명·조항참조가 번역되면 안 된다.
+   'IEC 60092' 가 'IEC 60092호' 로 바뀌면 규정을 못 찾는다. */
+const NOTR=/\b((?:IEC|ISO|EN|BS|ASTM|API|IACS|IMO|SOLAS|MARPOL|MSC|UR)[\s.\/-]?[\w.\/-]*\d[\w.\/-]*|Pt\s?\d+(?:,\s?Ch\s?\d+)?(?:,\s?\d+(?:\.\d+)*)?|Ch\s?\d+(?:,\s?\d+(?:\.\d+)*)?|Table\s?\d+(?:\.\d+)*|Figure\s?\d+(?:\.\d+)*|\d+\.\d+(?:\.\d+)*)/g;
+function keepTerms(h){return h.replace(NOTR,'<span translate="no">$1</span>')}
 function snippet(text,q){
  const lc=text.toLowerCase(),t=q.toLowerCase().split(/\s+/).filter(Boolean);
  let at=-1;for(const w of t){const i=lc.indexOf(w);if(i>=0&&(at<0||i<at))at=i}
@@ -247,7 +249,7 @@ function snippet(text,q){
  out=esc(out);
  for(const w of t){if(w.length<2)continue;
   out=out.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>')}
- return out;
+ return keepTerms(out);
 }
 
 /* ---------- 화면 ---------- */
@@ -274,15 +276,15 @@ function run(mec){
  out.innerHTML=rows.map(i=>{const r=D.rows[i],[dc,pt,ch,sc,sb,cl,pg,tx]=r;
   const[code,ed]=D.docs[dc].split('|');
   const crumb=[D.parts[pt],D.chapters[ch],D.sections[sc]].filter(Boolean).join(' › ');
-  return `<article><div class="k"><div class="n">${esc(cl)}</div><div class="doc">${esc(code)}</div>
+  return `<article><div class="k" translate="no"><div class="n">${esc(cl)}</div><div class="doc">${esc(code)}</div>
    <div class="ed">${esc(ed)}</div><div>p.${pg}</div></div><div class="b">
    ${crumb?`<div class="crumb">${esc(crumb)}</div>`:''}
    ${D.subheads[sb]?`<div class="sub">${esc(D.subheads[sb])}</div>`:''}
    <div class="txt" id="tx${i}" data-full="0">${snippet(tx,term2)}</div>
-   <div class="acts"><button data-fl="${i}">조항 전체</button><button data-pdf="${i}">PDF 원문</button>
-    <button data-ko="${i}">국문 보기</button><button data-cp="${i}">원문 복사</button></div>
-   <div class="kobox" id="ko${i}" hidden></div></div></article>`}).join('');
- out.querySelectorAll('[data-ko]').forEach(b=>b.onclick=()=>toggleKo(b));
+   <div class="acts" translate="no"><button data-fl="${i}">조항 전체</button><button data-pdf="${i}">PDF 원문</button>
+    <button data-tr="${i}">국문 번역</button><button data-cp="${i}">원문 복사</button></div>
+   </div></article>`}).join('');
+ out.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>openTranslate(b));
  out.querySelectorAll('[data-cp]').forEach(b=>b.onclick=()=>copyText(b));
  out.querySelectorAll('[data-fl]').forEach(b=>b.onclick=()=>toggleFull(b,term2));
  out.querySelectorAll('[data-pdf]').forEach(b=>b.onclick=()=>openPdf(b));
@@ -292,12 +294,30 @@ function toggleFull(b,term){const i=b.dataset.fl,el=$('#tx'+i),tx=D.rows[i][7];
  else{let h=esc(tx);
   for(const w of term.toLowerCase().split(/\s+/).filter(x=>x.length>1))
    h=h.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');
-  el.innerHTML=h;el.dataset.full='1';b.textContent='접기'}}
-function toggleKo(b){const i=b.dataset.ko,box=$('#ko'+i);
- if(!box.hidden){box.hidden=true;b.textContent='국문 보기';return}
- if(!box.dataset.done){box.innerHTML=gloss(esc(D.rows[i][7]))+
-  '<em>용어 대역 · 원문이 우선합니다. 문장 번역은 원문 복사 후 번역 앱을 쓰세요.</em>';box.dataset.done='1'}
- box.hidden=false;b.textContent='국문 숨기기'}
+  el.innerHTML=keepTerms(h);el.dataset.full='1';b.textContent='접기'}}
+/* 조항 원문을 구글 번역에 실어 새 탭으로 연다.
+
+   크롬 내장 번역은 웹페이지가 직접 호출할 수 없다(사용자만 켤 수 있음).
+   그래서 번역 페이지를 여는 방식을 쓴다.
+
+   주소 길이에는 한계가 있어(브라우저·서버 합쳐 대략 2,000자 선),
+   긴 조항은 잘린 채 번역될 수 있다. 그런 경우에는 전문을 클립보드에
+   복사해 두고 안내한다 — 붙여넣기만 하면 전체가 번역된다. */
+const TR_LIMIT=1500;
+async function openTranslate(b){
+ const tx=D.rows[b.dataset.tr][7];
+ const long=tx.length>TR_LIMIT;
+ const body=long?tx.slice(0,TR_LIMIT):tx;
+ const url='https://translate.google.com/?sl=en&tl=ko&op=translate&text='
+   +encodeURIComponent(body);
+ if(long){
+  try{await navigator.clipboard.writeText(tx);
+   b.textContent='전문 복사됨 · 붙여넣기';
+   setTimeout(()=>b.textContent='국문 번역',3000)}catch(e){}
+ }
+ const w=window.open(url,'_blank','noopener');
+ if(!w){b.textContent='팝업 차단됨';setTimeout(()=>b.textContent='국문 번역',2200)}
+}
 async function copyText(b){const r=D.rows[b.dataset.cp],[code,ed]=D.docs[r[0]].split('|');
  const t=`${code} ${ed} ${r[5]} (p.${r[6]})\n${r[7]}`;
  try{await navigator.clipboard.writeText(t);b.textContent='복사됨'}
@@ -439,7 +459,25 @@ async function useData(buf,name){
  renderMec();
  try{const p=await idbGet('pdf');if(p)PDF=p}catch(e){}
  try{const s=await idbGet('data');if(s&&s.buf)await useData(s.buf,s.name)}catch(e){console.warn(e)}
- if('serviceWorker'in navigator){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
+ /* 갱신 반영.
+    새 sw.js 가 설치돼도 이미 열려 있는 탭은 옛 화면을 계속 보여준다.
+    그래서 새 버전이 자리를 잡으면 자동으로 새로고침한다.
+    동료들이 Ctrl+Shift+R 을 눌러야 하는 상황을 없애기 위한 것이다. */
+ if('serviceWorker'in navigator){try{
+  const reg=await navigator.serviceWorker.register('sw.js');
+  let reloading=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+   if(reloading)return;reloading=true;location.reload()});
+  reg.addEventListener('updatefound',()=>{
+   const nw=reg.installing;if(!nw)return;
+   nw.addEventListener('statechange',()=>{
+    // 이미 제어 중인 워커가 있는 상태에서 새 워커가 설치되면 = 갱신된 것
+    if(nw.state==='installed'&&navigator.serviceWorker.controller)nw.postMessage('skipWaiting')})});
+  // 탭을 열 때마다, 그리고 다시 활성화될 때마다 갱신 여부를 확인한다
+  reg.update().catch(()=>{});
+  document.addEventListener('visibilitychange',()=>{
+   if(!document.hidden)reg.update().catch(()=>{})});
+ }catch(e){}}
 })();
 </script>
 </body>
