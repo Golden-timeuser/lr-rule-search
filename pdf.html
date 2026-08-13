@@ -11,7 +11,15 @@
 :root{--ink:#12212e;--ink2:#41586b;--ink3:#7b8fa0;--paper:#e9e6df;--card:#fff;
  --line:#dcd8cf;--sea:#0b5c7a;--sea-dk:#0D4665;--warn:#FFD166;
  --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
- --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Segoe UI",system-ui,sans-serif}
+ /* 검색 화면과 같은 LR 브랜드 글꼴 지침을 따른다 (index.html 주석 참고) */
+ --lat:"Source Sans 3","Source Sans Pro";
+ --head:"FinalSix Book","FinalSix",var(--lat),"Pretendard","Apple SD Gothic Neo","Malgun Gothic",Calibri,system-ui,sans-serif;
+ --sans:var(--lat),"Pretendard","Apple SD Gothic Neo","Malgun Gothic",Calibri,"Segoe UI",system-ui,sans-serif}
+
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;
+ src:url("fonts/source-sans-3-400.woff2") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;
+ src:url("fonts/source-sans-3-600.woff2") format("woff2")}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 var(--sans);
@@ -35,7 +43,7 @@ input.pg::placeholder{color:#9DB6C6}
 main{flex:1 1 auto;overflow:auto;display:block;text-align:center;padding:16px 10px 40px}
 canvas{background:#fff;box-shadow:0 1px 10px rgba(0,0,0,.22);max-width:100%;height:auto}
 .state{padding:60px 20px;color:var(--ink2);font-size:14px}
-.state b{display:block;font-size:16px;color:var(--ink);margin-bottom:8px}
+.state b{display:block;font:600 17px var(--head);color:var(--ink);margin-bottom:8px}
 .err{color:#8a2b13}
 a.back{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);font-size:12.5px}
 @media(max-width:640px){.tw .id{display:none}}
