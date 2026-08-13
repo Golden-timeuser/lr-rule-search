@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0D4665">
+<link rel="icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="icon-32.png?v=3" sizes="32x32">
+<title>PDF 원문 · LR Rule Finder</title>
+<style>
+:root{--ink:#12212e;--ink2:#41586b;--ink3:#7b8fa0;--paper:#e9e6df;--card:#fff;
+ --line:#dcd8cf;--sea:#0b5c7a;--sea-dk:#0D4665;--warn:#FFD166;
+ --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+ --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 var(--sans);
+ display:flex;flex-direction:column}
+header{background:var(--sea-dk);color:#fff;padding-top:env(safe-area-inset-top);flex:0 0 auto}
+.tw{max-width:1180px;margin:0 auto;padding:9px 14px;display:flex;align-items:center;
+ gap:9px;flex-wrap:wrap}
+.tw .id{font:12px var(--mono);color:#9DB6C6;white-space:nowrap}
+.tw .cl{font:13px var(--mono);font-weight:600;color:#fff;letter-spacing:.02em}
+.grow{flex:1 1 auto}
+button,.btn{font:12.5px var(--sans);background:none;border:1px solid rgba(255,255,255,.45);
+ color:#fff;border-radius:2px;padding:5px 10px;cursor:pointer;white-space:nowrap}
+button:hover{background:rgba(255,255,255,.12)}
+button:disabled{opacity:.35;cursor:default}
+input.pg{width:66px;font:12.5px var(--mono);text-align:center;padding:5px 4px;border-radius:2px;
+ border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.10);color:#fff}
+input.pg::placeholder{color:#9DB6C6}
+.tot{font:12px var(--mono);color:#9DB6C6}
+.msg{max-width:1180px;margin:0 auto;padding:0 14px 9px;font-size:12.5px;color:#cfe0ea}
+.msg b{color:var(--warn)}
+main{flex:1 1 auto;overflow:auto;display:block;text-align:center;padding:16px 10px 40px}
+canvas{background:#fff;box-shadow:0 1px 10px rgba(0,0,0,.22);max-width:100%;height:auto}
+.state{padding:60px 20px;color:var(--ink2);font-size:14px}
+.state b{display:block;font-size:16px;color:var(--ink);margin-bottom:8px}
+.err{color:#8a2b13}
+a.back{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);font-size:12.5px}
+@media(max-width:640px){.tw .id{display:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="tw">
+  <span class="cl" id="clause">PDF 원문</span>
+  <span class="id" id="docid"></span>
+  <span class="grow"></span>
+  <button id="prev" title="이전 쪽">◀</button>
+  <input class="pg" id="pgin" inputmode="numeric" placeholder="쪽">
+  <span class="tot" id="tot"></span>
+  <button id="next" title="다음 쪽">▶</button>
+  <button id="zout" title="축소">−</button>
+  <button id="zin" title="확대">＋</button>
+  <button id="native" title="브라우저 기본 PDF 뷰어로 열기">기본 뷰어</button>
+ </div>
+ <div class="msg" id="msg" hidden></div>
+</header>
+<main id="stage">
+ <div class="state" id="state"><b>여는 중입니다</b>등록된 PDF를 기기에서 읽고 있습니다.</div>
+</main>
+
+<script type="module">
+/* 조항이 실린 쪽을 확실히 여는 뷰어.
+
+   왜 따로 만들었나 — blob: 주소로 연 PDF 는 Chrome/Edge 의 기본 PDF 뷰어가
+   주소 뒤의 #page=1234 를 무시한다. 그래서 항상 1쪽이 열렸다. 파일을 기기에
+   보관하는 구조상 blob: 을 피할 수 없으므로, 쪽 이동을 직접 하는 뷰어를 둔다.
+
+   덤으로 쪽 자동 보정을 넣었다. 목표 쪽에서 조항번호가 안 보이면 앞뒤 8쪽을
+   훑어 실제로 그 조항이 있는 쪽으로 옮긴다. 판이 조금 다르거나 표지 장수가
+   달라 쪽이 밀린 경우에도 원하는 조항이 나온다. */
+import * as pdfjsLib from './pdfjs/pdf.min.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/pdf.worker.min.mjs';
+
+const $ = s => document.querySelector(s);
+const stage = $('#stage'), stateEl = $('#state'), msgEl = $('#msg');
+
+/* ---------- 주소에서 무엇을 열지 읽는다 ---------- */
+const hp = new URLSearchParams(location.hash.replace(/^#/, ''));
+const DOC  = hp.get('doc') || '';
+const WANT = Math.max(1, parseInt(hp.get('page') || '1', 10) || 1);
+const CL   = (hp.get('cl') || '').trim();
+
+$('#clause').textContent = CL ? CL : 'PDF 원문';
+$('#docid').textContent  = DOC.replace('|', ' · ');
+document.title = (CL ? CL + ' · ' : '') + DOC.split('|')[0] + ' · PDF 원문';
+
+/* ---------- 보관소 (index.html 과 같은 곳) ---------- */
+const DB = 'lrrules', STORE = 'files';
+function idb(){return new Promise((ok,no)=>{const r=indexedDB.open(DB,1);
+ r.onupgradeneeded=()=>r.result.createObjectStore(STORE);
+ r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)})}
+async function idbGet(k){const db=await idb();return new Promise((ok,no)=>{
+ const t=db.transaction(STORE,'readonly'),q=t.objectStore(STORE).get(k);
+ q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)})}
+async function idbSet(k,v){const db=await idb();return new Promise((ok,no)=>{
+ const t=db.transaction(STORE,'readwrite');t.objectStore(STORE).put(v,k);
+ t.oncomplete=ok;t.onerror=()=>no(t.error)})}
+
+function fail(title, detail){
+ stage.innerHTML = '<div class="state"><b class="err">'+title+'</b>'+detail+'</div>';
+}
+
+/* ---------- 열기 ---------- */
+let doc = null, page = WANT, scale = 1, fitScale = 1, buf = null, busy = 0;
+
+(async function open(){
+ if(!DOC){fail('무엇을 열지 지정되지 않았습니다','검색 결과의 [PDF 원문] 단추로 열어 주십시오.');return}
+ let raw = null;
+ try{
+  raw = await idbGet('pdf:' + DOC);
+  if(!raw){ // 옛 보관 구조 (모든 PDF 를 한 칸에 묶어 두던 방식)
+   const old = await idbGet('pdf');
+   if(old && old[DOC] && old[DOC].buf) raw = old[DOC].buf;
+  }
+ }catch(e){}
+ if(!raw){fail('등록된 PDF가 없습니다','검색 화면의 [PDF 연결]에서 '+DOC.replace('|',' ')+' 파일을 먼저 등록해 주십시오.');return}
+ buf = raw;
+ try{
+  doc = await pdfjsLib.getDocument({
+   data: new Uint8Array(raw.slice(0)),
+   standardFontDataUrl: './pdfjs/standard_fonts/',
+   disableAutoFetch: true, disableStream: true
+  }).promise;
+ }catch(e){fail('PDF를 열지 못했습니다', e.message || String(e));return}
+
+ $('#tot').textContent = '/ ' + doc.numPages;
+ page = Math.min(Math.max(1, WANT), doc.numPages);
+
+ // 저장해 둔 쪽 보정값이 있으면 먼저 적용한다
+ let off = 0;
+ try{ const o = await idbGet('pdfoff'); if(o && o[DOC]) off = o[DOC]|0; }catch(e){}
+ if(off){ page = Math.min(Math.max(1, page + off), doc.numPages); }
+
+ await render();
+ locate(off);            // 조항번호로 쪽을 확인·보정한다 (화면은 이미 떠 있다)
+})();
+
+/* ---------- 쪽 자동 보정 ---------- */
+function squash(s){return s.replace(/\s+/g,'').toLowerCase()}
+async function pageHas(p, needle){
+ try{
+  const pg = await doc.getPage(p);
+  const tc = await pg.getTextContent();
+  return squash(tc.items.map(i => i.str).join(' ')).includes(needle);
+ }catch(e){return false}
+}
+async function locate(prevOff){
+ if(!CL || !doc) return;
+ const needle = squash(CL);
+ if(needle.length < 3) return;
+ if(await pageHas(page, needle)) return;     // 맞게 열렸다
+ const order = [];
+ for(let d = 1; d <= 8; d++){ order.push(d, -d); }
+ for(const d of order){
+  const p = page + d;
+  if(p < 1 || p > doc.numPages) continue;
+  if(await pageHas(p, needle)){
+   const from = page;
+   page = p;
+   await render();
+   const total = (prevOff|0) + d;
+   msgEl.hidden = false;
+   msgEl.innerHTML = '쪽 자동 보정 — 목록의 p.' + from + ' 에 <b>' + CL +
+    '</b> 이(가) 없어 p.' + p + ' 로 옮겼습니다. ' +
+    '<a href="#" id="keepoff" class="back">이 문서에 항상 ' +
+    (total > 0 ? '+' : '') + total + '쪽 적용</a>';
+   $('#keepoff').onclick = async e => {
+    e.preventDefault();
+    let o = {}; try{ o = (await idbGet('pdfoff')) || {} }catch(err){}
+    o[DOC] = total; await idbSet('pdfoff', o);
+    msgEl.innerHTML = '이 문서는 앞으로 ' + (total > 0 ? '+' : '') + total + '쪽 보정해 엽니다.';
+   };
+   return;
+  }
+ }
+ msgEl.hidden = false;
+ msgEl.innerHTML = '<b>확인 필요</b> — p.' + page + ' 부근에서 ' + CL +
+  ' 을(를) 찾지 못했습니다. 등록한 PDF의 판이 다를 수 있습니다.';
+}
+
+/* ---------- 그리기 ---------- */
+let canvas = null;
+async function render(){
+ const token = ++busy;
+ const pg = await doc.getPage(page);
+ const base = pg.getViewport({scale: 1});
+ const avail = Math.min(stage.clientWidth - 24, 1100);
+ fitScale = avail / base.width;
+ const dpr = Math.min(window.devicePixelRatio || 1, 2);
+ const vp = pg.getViewport({scale: fitScale * scale * dpr});
+ if(token !== busy) return;
+ if(!canvas){ canvas = document.createElement('canvas'); stage.innerHTML = ''; stage.appendChild(canvas); }
+ canvas.width = Math.round(vp.width);
+ canvas.height = Math.round(vp.height);
+ canvas.style.width = Math.round(vp.width / dpr) + 'px';
+ await pg.render({canvasContext: canvas.getContext('2d'), viewport: vp}).promise;
+ if(token !== busy) return;
+ $('#pgin').value = page;
+ $('#prev').disabled = page <= 1;
+ $('#next').disabled = page >= doc.numPages;
+ stage.scrollTop = 0;
+}
+async function go(p){
+ if(!doc) return;
+ p = Math.min(Math.max(1, p | 0), doc.numPages);
+ if(p === page) return;
+ page = p; await render();
+}
+
+/* ---------- 조작 ---------- */
+$('#prev').onclick = () => go(page - 1);
+$('#next').onclick = () => go(page + 1);
+$('#pgin').onchange = e => go(parseInt(e.target.value, 10));
+$('#zin').onclick  = () => { scale = Math.min(scale * 1.25, 4); render(); };
+$('#zout').onclick = () => { scale = Math.max(scale / 1.25, 0.4); render(); };
+$('#native').onclick = () => {
+ if(!buf) return;
+ const url = URL.createObjectURL(new Blob([buf], {type: 'application/pdf'}));
+ window.open(url + '#page=' + page, '_blank');
+ setTimeout(() => URL.revokeObjectURL(url), 60000);
+};
+addEventListener('keydown', e => {
+ if(e.target.tagName === 'INPUT') return;
+ if(e.key === 'ArrowRight' || e.key === 'PageDown'){ e.preventDefault(); go(page + 1); }
+ if(e.key === 'ArrowLeft'  || e.key === 'PageUp'){   e.preventDefault(); go(page - 1); }
+});
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => doc && render(), 200); });
+</script>
+</body>
+</html>

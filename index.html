@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#12212e">
-<link rel="icon" href="favicon.ico?v=2" sizes="16x16 32x32 48x48">
+<link rel="icon" href="favicon.ico?v=3" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="icon-32.png?v=3" sizes="32x32">
 <link rel="icon" type="image/png" href="icon-192.png?v=2" sizes="192x192">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <link rel="manifest" href="manifest.webmanifest?v=2">
@@ -336,54 +337,101 @@ async function copyText(b){const r=D.rows[b.dataset.cp],[code,ed]=D.docs[r[0]].s
  catch(e){b.textContent='복사 실패'}
  setTimeout(()=>b.textContent='원문 복사',1400)}
 
-let PDF={};   // { "LR-RU-001|July 2026": {name, buf} }
+let PDFM={};  /* { "LR-RU-001|July 2026": {name,size,ts} } — 목록 표시용 정보만 */
 /* PDF 파일을 기기에 등록해 두고, 조항이 실린 쪽을 바로 연다.
    폴더 경로 방식은 쓸 수 없다 — https 사이트에서 file:// 링크를 여는 것을
-   브라우저가 보안상 막기 때문이다. 그래서 파일 자체를 등록받는다. */
-async function openPdf(btn){
- const r=D.rows[btn.dataset.pdf],doc=D.docs[r[0]],pg=r[6];
- const rec=PDF[doc];
- if(!rec){openPdfDlg(doc);return}
- try{
-  const url=URL.createObjectURL(new Blob([rec.buf],{type:'application/pdf'}));
-  const w=window.open(url+'#page='+pg,'_blank');
-  if(!w){alert('팝업이 차단되었습니다. 이 사이트의 팝업을 허용해 주세요.');return}
-  setTimeout(()=>URL.revokeObjectURL(url),60000);
- }catch(e){alert('PDF를 열지 못했습니다: '+e.message)}
+   브라우저가 보안상 막기 때문이다. 그래서 파일 자체를 등록받는다.
+
+   보관 구조: 파일 본문은 'pdf:규정|판' 키에 하나씩 따로 넣는다. 예전에는 모든
+   PDF 를 'pdf' 한 칸에 묶어 두어, 화면을 열 때마다 등록한 PDF 전부(수백 MB)를
+   메모리로 읽어 들였다. migratePdf() 가 옛 구조를 자동으로 옮기므로 다시
+   등록할 필요는 없다. */
+const PKEY=doc=>'pdf:'+doc;
+
+async function migratePdf(){
+ let old=null;
+ try{old=await idbGet('pdf')}catch(e){}
+ if(old&&typeof old==='object'&&Object.keys(old).length){
+  const meta={};
+  for(const k of Object.keys(old)){
+   const rec=old[k]; if(!rec||!rec.buf)continue;
+   await idbSet(PKEY(k),rec.buf);
+   meta[k]={name:rec.name,size:rec.buf.byteLength,ts:Date.now()};
+  }
+  await idbSet('pdfmeta',meta);
+  await idbDel('pdf');
+  return meta;
+ }
+ try{return(await idbGet('pdfmeta'))||{}}catch(e){return{}}
+}
+
+/* 뷰어를 새 탭으로 연다.
+   blob: 주소 + #page=N 은 Chrome/Edge 기본 PDF 뷰어가 무시해 늘 1쪽이 열렸다.
+   그래서 pdf.html 에서 직접 그 쪽을 그린다. */
+function openPdf(btn){
+ const r=D.rows[btn.dataset.pdf],doc=D.docs[r[0]],pg=r[6],cl=r[5];
+ if(!PDFM[doc]){openPdfDlg(doc);return}
+ const u='pdf.html#doc='+encodeURIComponent(doc)+'&page='+pg+'&cl='+encodeURIComponent(cl||'');
+ if(!window.open(u,'_blank'))alert('팝업이 차단되었습니다. 이 사이트의 팝업을 허용해 주세요.');
 }
 function pdfLabel(doc){const[code,ed]=doc.split('|');return code+' · '+ed}
+function mb(n){return n>=1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+
 function openPdfDlg(focus){
  const el=$('#pdfRows');
  if(!D){el.innerHTML='<p style="color:var(--ink3);font-size:13px">규정 자료를 먼저 불러오세요.</p>';
   $('#pdlg').showModal();return}
  el.innerHTML=D.docs.map(doc=>{
-  const on=!!PDF[doc];
+  const m=PDFM[doc];
   return `<div style="margin-bottom:11px;padding:9px 11px;border:1px solid var(--line);
-   border-radius:2px;background:${doc===focus&&!on?'var(--ko)':'var(--paper)'}">
-   <div style="font:12px var(--mono);color:${on?'var(--sea)':'var(--ink2)'};margin-bottom:5px">
-    ${on?'✓ 등록됨':'미등록'} · ${esc(pdfLabel(doc))}</div>
-   ${on?`<div style="font-size:12.5px;color:var(--ink3)">${esc(PDF[doc].name)}</div>`
-       :`<input type="file" accept=".pdf" data-doc="${esc(doc)}" style="width:100%;font:12.5px var(--sans)">`}
+   border-radius:2px;background:${doc===focus&&!m?'var(--ko)':'var(--paper)'}">
+   <div style="font:12px var(--mono);color:${m?'var(--sea)':'var(--ink2)'};margin-bottom:5px">
+    ${m?'✓ 등록됨':'미등록'} · ${esc(pdfLabel(doc))}</div>
+   ${m?`<div style="display:flex;align-items:flex-end;gap:8px">
+     <div style="flex:1;font-size:12.5px;color:var(--ink3);word-break:break-all">
+      ${esc(m.name)}<br>${mb(m.size||0)}</div>
+     <button data-rm="${esc(doc)}" style="font:12px var(--sans);background:none;
+      border:1px solid var(--line);color:var(--ink2);border-radius:2px;
+      padding:4px 10px;cursor:pointer">교체</button></div>`
+     :`<input type="file" accept=".pdf" data-doc="${esc(doc)}" style="width:100%;font:12.5px var(--sans)">`}
    </div>`}).join('');
+
+ el.querySelectorAll('[data-rm]').forEach(b=>b.onclick=async()=>{
+  const doc=b.dataset.rm;
+  if(!confirm(`${pdfLabel(doc)} 에 등록된 PDF를 지웁니다.\n새 파일을 다시 고르실 수 있습니다.`))return;
+  try{await idbDel(PKEY(doc))}catch(e){}
+  delete PDFM[doc]; await idbSet('pdfmeta',PDFM); openPdfDlg(doc);
+ });
+
  el.querySelectorAll('input[type=file]').forEach(inp=>inp.onchange=async e=>{
   const f=e.target.files[0];if(!f)return;
-  const doc=inp.dataset.doc;
+  const doc=inp.dataset.doc,[code,ed]=doc.split('|');
+  /* 판이 다른 PDF를 등록하면 쪽번호가 어긋난다(2025년 판 1,254쪽 / 2026년 판 1,803쪽).
+     예전에는 파일명에 판 표기가 들어 있으면 아무것도 묻지 않고 넘어갔는데,
+     Regs4ships 로 받은 파일은 파일명에 판이 늘 들어 있어 사실상 확인이
+     생략되었다. 그래서 파일명과 무관하게 항상 한 번 되묻는다. */
+  const nm=f.name.replace(/[_\s]+/g,' ');
+  const y=(ed.match(/\d{4}/)||[])[0]||'';
+  const mon=(ed.split(' ')[0]||'');
+  const hitY=!!(y&&nm.includes(y));
+  const hitM=!!(mon&&new RegExp(mon.slice(0,3),'i').test(nm));
+  const judge=hitY&&hitM ? '파일명에서 '+ed+' 를 확인했습니다.'
+            : hitY||hitM ? '⚠ 파일명이 '+ed+' 와 일부만 맞습니다.'
+                         : '⚠ 파일명에서 '+ed+' 를 찾지 못했습니다.';
+  const ok=confirm(
+   `[${code}] 최신판 확인\n\n`+
+   `이 자료가 요구하는 판 : ${ed}\n`+
+   `등록하려는 파일 : ${f.name}\n\n`+
+   `${judge}\n\n`+
+   `판이 다르면 쪽번호가 어긋나 엉뚱한 쪽이 열립니다.\n`+
+   `이 파일이 ${ed} 판이 맞으면 [확인]을 누르십시오.`);
+  if(!ok){inp.value='';return}
   inp.disabled=true;
   try{
    const buf=await f.arrayBuffer();
-   // 판이 다른 PDF를 등록하면 쪽번호가 어긋난다(2025년 판 1,254쪽 / 2026년 판 1,803쪽).
-   // 파일명에서 판을 읽어 확인하고, 다르면 되묻는다.
-   const[code,ed]=doc.split('|');
-   const y=(ed.match(/\d{4}/)||[])[0];
-   const mon=(ed.split(' ')[0]||'').slice(0,3);
-   const nm=f.name.replace(/[_\s]+/g,' ');
-   if(y&&!(nm.includes(y)&&new RegExp(mon,'i').test(nm))){
-    if(!confirm(`이 파일이 ${code} ${ed} 판이 맞습니까?\n\n`+
-      `파일명: ${f.name}\n\n`+
-      `판이 다르면 쪽번호가 맞지 않아 엉뚱한 쪽이 열립니다.`)){
-     inp.disabled=false;inp.value='';return}}
-   PDF[doc]={name:f.name,buf};
-   await idbSet('pdf',PDF);
+   await idbSet(PKEY(doc),buf);
+   PDFM[doc]={name:f.name,size:buf.byteLength,ts:Date.now()};
+   await idbSet('pdfmeta',PDFM);
    openPdfDlg();
    if(q.value.trim())run();
   }catch(err){alert('PDF를 저장하지 못했습니다: '+err.message);inp.disabled=false}
@@ -392,8 +440,14 @@ function openPdfDlg(focus){
 }
 $('#btnPdf').onclick=()=>openPdfDlg();
 $('#pdlgClose').onclick=()=>$('#pdlg').close();
-$('#pdlgClear').onclick=async()=>{PDF={};await idbDel('pdf');openPdfDlg();
- if(q.value.trim())run()};
+$('#pdlgClear').onclick=async()=>{
+ if(!confirm('등록한 PDF를 모두 지웁니다. 계속할까요?'))return;
+ for(const doc of Object.keys(PDFM)){try{await idbDel(PKEY(doc))}catch(e){}}
+ PDFM={};
+ try{await idbSet('pdfmeta',{})}catch(e){}
+ try{await idbDel('pdf')}catch(e){}
+ try{await idbDel('pdfoff')}catch(e){}
+ openPdfDlg(); if(q.value.trim())run()};
 
 /* ---------- MEC 목록 ---------- */
 function parseCsv(txt){
@@ -492,7 +546,7 @@ async function useData(buf,name){
  try{const m=await idbGet('mec');if(m)MEC=parseCsv(m)}catch(e){}
  if(!MEC.length){try{const r=await fetch('mec.csv');if(r.ok)MEC=parseCsv(await r.text())}catch(e){}}
  renderMec();
- try{const p=await idbGet('pdf');if(p)PDF=p}catch(e){}
+ try{PDFM=await migratePdf()}catch(e){}
  try{const s=await idbGet('data');if(s&&s.buf)await useData(s.buf,s.name)}catch(e){console.warn(e)}
  /* 갱신 반영.
     새 sw.js 가 설치돼도 이미 열려 있는 탭은 옛 화면을 계속 보여준다.

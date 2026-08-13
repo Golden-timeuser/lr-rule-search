@@ -8,9 +8,13 @@
 
    핵심은 cache:'reload' 다. 이것이 없으면 fetch 가 브라우저 자체 HTTP
    캐시에서 옛 파일을 그대로 돌려주어, 네트워크 우선으로 짜도 소용이 없다. */
-const V = 'lr-rules-v3';
-const SHELL = ['./', './index.html', './mec.csv', './manifest.webmanifest',
-               './favicon.ico', './icon-180.png', './icon-192.png', './icon-512.png'];
+const V = 'lr-rules-v4';
+const SHELL = ['./', './index.html', './pdf.html', './mec.csv', './manifest.webmanifest',
+               './favicon.ico', './icon-32.png', './icon-180.png', './icon-192.png',
+               './icon-512.png',
+               './pdfjs/pdf.min.mjs', './pdfjs/pdf.worker.min.mjs'];
+/* standard_fonts 는 미리 받지 않는다 — 16개 파일이라 설치가 느려지고,
+   글꼴이 내장되지 않은 PDF 에서만 쓰인다. 실제로 쓰일 때 캐시에 들어간다. */
 
 self.addEventListener('install', e => {
   e.waitUntil(
